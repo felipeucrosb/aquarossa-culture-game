@@ -1,0 +1,52 @@
+[
+  {
+    "name": "MR. BEZOS",
+    "slug": "bezos",
+    "trait": "Customer obsession"
+  },
+  {
+    "name": "MR. MUSK",
+    "slug": "musk",
+    "trait": "Bold disruption"
+  },
+  {
+    "name": "MR. GROVE",
+    "slug": "grove",
+    "trait": "Strategic discipline"
+  },
+  {
+    "name": "MR. JOBS",
+    "slug": "jobs",
+    "trait": "Product focus"
+  },
+  {
+    "name": "MR. ZUCKERBERG",
+    "slug": "zuckerberg",
+    "trait": "Build at scale"
+  },
+  {
+    "name": "MR. BRANSON",
+    "slug": "branson",
+    "trait": "Adventure & freedom"
+  },
+  {
+    "name": "MR. THIEL",
+    "slug": "thiel",
+    "trait": "Contrarian thinking"
+  },
+  {
+    "name": "MR. KALANICK",
+    "slug": "kalanick",
+    "trait": "Relentless execution"
+  },
+  {
+    "name": "MR. NEUMANN",
+    "slug": "neumann",
+    "trait": "Think very big"
+  },
+  {
+    "name": "MR. DORSEY",
+    "slug": "dorsey",
+    "trait": "Simplicity & focus"
+  }
+]

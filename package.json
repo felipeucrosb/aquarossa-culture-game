@@ -1,6 +1,7 @@
 {
-  "name": "aquarossa-culture-game-v4",
-  "version": "4.0.0",
+  "name": "aquarossa-culture-game-v5",
+  "version": "5.0.0",
+  "private": true,
   "scripts": {
     "start": "node server.js"
   },
