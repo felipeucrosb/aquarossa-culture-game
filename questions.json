@@ -1,0 +1,1598 @@
+[
+  {
+    "id": 1,
+    "category": "La mejor idea gana",
+    "prompt": "Una idea de una persona nueva supera claramente la propuesta original en una prueba. ¿Qué debería pesar más?",
+    "options": [
+      "Seguir la jerarquía",
+      "Elegir la alternativa que mejor sirve al objetivo",
+      "Evitar cambiar",
+      "Esperar consenso total"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 2,
+    "category": "La mejor idea gana",
+    "prompt": "Dos equipos defienden soluciones distintas. Una resuelve mejor el problema del cliente. ¿Qué debería decidir el resultado?",
+    "options": [
+      "Seguir la jerarquía",
+      "Elegir la alternativa que mejor sirve al objetivo",
+      "Evitar cambiar",
+      "Esperar consenso total"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 3,
+    "category": "La mejor idea gana",
+    "prompt": "Una propuesta favorita falla en datos iniciales y una alternativa funciona mejor. ¿Qué conviene hacer?",
+    "options": [
+      "Seguir la jerarquía",
+      "Elegir la alternativa que mejor sirve al objetivo",
+      "Evitar cambiar",
+      "Esperar consenso total"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 4,
+    "category": "La mejor idea gana",
+    "prompt": "Una persona cambia de opinión al escuchar un argumento superior. ¿Qué comportamiento refleja?",
+    "options": [
+      "Seguir la jerarquía",
+      "Elegir la alternativa que mejor sirve al objetivo",
+      "Evitar cambiar",
+      "Esperar consenso total"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 5,
+    "category": "La mejor idea gana",
+    "prompt": "Una solución simple logra mejor el objetivo que una solución sofisticada. ¿Cuál debería avanzar?",
+    "options": [
+      "Seguir la jerarquía",
+      "Elegir la alternativa que mejor sirve al objetivo",
+      "Evitar cambiar",
+      "Esperar consenso total"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 6,
+    "category": "La mejor idea gana",
+    "prompt": "Una idea viene de un área inesperada pero tiene mejor evidencia. ¿Qué debería importar?",
+    "options": [
+      "Seguir la jerarquía",
+      "Elegir la alternativa que mejor sirve al objetivo",
+      "Evitar cambiar",
+      "Esperar consenso total"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 7,
+    "category": "La mejor idea gana",
+    "prompt": "Una discusión se atasca porque todos defienden su propuesta. ¿Qué ayuda más?",
+    "options": [
+      "Seguir la jerarquía",
+      "Elegir la alternativa que mejor sirve al objetivo",
+      "Evitar cambiar",
+      "Esperar consenso total"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 8,
+    "category": "La mejor idea gana",
+    "prompt": "Una idea externa supera una solución creada internamente. ¿Qué debería pasar?",
+    "options": [
+      "Seguir la jerarquía",
+      "Elegir la alternativa que mejor sirve al objetivo",
+      "Evitar cambiar",
+      "Esperar consenso total"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 9,
+    "category": "La mejor idea gana",
+    "prompt": "Alguien encuentra una falla importante en una idea propia. ¿Cuál es la mejor reacción?",
+    "options": [
+      "Seguir la jerarquía",
+      "Elegir la alternativa que mejor sirve al objetivo",
+      "Evitar cambiar",
+      "Esperar consenso total"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 10,
+    "category": "La mejor idea gana",
+    "prompt": "Una propuesta junior tiene mayor impacto esperado que la propuesta senior. ¿Qué criterio debe dominar?",
+    "options": [
+      "Seguir la jerarquía",
+      "Elegir la alternativa que mejor sirve al objetivo",
+      "Evitar cambiar",
+      "Esperar consenso total"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 11,
+    "category": "La mejor idea gana",
+    "prompt": "Una mejora importante transforma una idea inicial hasta hacerla irreconocible. ¿Qué importa al final?",
+    "options": [
+      "Seguir la jerarquía",
+      "Elegir la alternativa que mejor sirve al objetivo",
+      "Evitar cambiar",
+      "Esperar consenso total"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 12,
+    "category": "La mejor idea gana",
+    "prompt": "Dos opciones cuestan igual y una mejora mucho más la experiencia. ¿Cuál debería ganar?",
+    "options": [
+      "Seguir la jerarquía",
+      "Elegir la alternativa que mejor sirve al objetivo",
+      "Evitar cambiar",
+      "Esperar consenso total"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 13,
+    "category": "La mejor idea gana",
+    "prompt": "Una persona demuestra que la práctica histórica ya no es la mejor. ¿Qué corresponde?",
+    "options": [
+      "Seguir la jerarquía",
+      "Elegir la alternativa que mejor sirve al objetivo",
+      "Evitar cambiar",
+      "Esperar consenso total"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 14,
+    "category": "La mejor idea gana",
+    "prompt": "El equipo prefiere A, pero B sirve mejor al objetivo. ¿Qué debería pesar más?",
+    "options": [
+      "Seguir la jerarquía",
+      "Elegir la alternativa que mejor sirve al objetivo",
+      "Evitar cambiar",
+      "Esperar consenso total"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 15,
+    "category": "La mejor idea gana",
+    "prompt": "Una propuesta recibe críticas útiles que la vuelven mejor. ¿Qué cultura queremos?",
+    "options": [
+      "Seguir la jerarquía",
+      "Elegir la alternativa que mejor sirve al objetivo",
+      "Evitar cambiar",
+      "Esperar consenso total"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 16,
+    "category": "La mejor idea gana",
+    "prompt": "Una decisión puede resolverse comparando criterios objetivos. ¿Qué conviene evitar?",
+    "options": [
+      "Seguir la jerarquía",
+      "Elegir la alternativa que mejor sirve al objetivo",
+      "Evitar cambiar",
+      "Esperar consenso total"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 17,
+    "category": "La mejor idea gana",
+    "prompt": "Una idea propia deja de ser la mejor alternativa. ¿Qué conducta fortalece al equipo?",
+    "options": [
+      "Seguir la jerarquía",
+      "Elegir la alternativa que mejor sirve al objetivo",
+      "Evitar cambiar",
+      "Esperar consenso total"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 18,
+    "category": "La mejor idea gana",
+    "prompt": "Un departamento propone una solución fuera de su área habitual y funciona. ¿Qué debería ocurrir?",
+    "options": [
+      "Seguir la jerarquía",
+      "Elegir la alternativa que mejor sirve al objetivo",
+      "Evitar cambiar",
+      "Esperar consenso total"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 19,
+    "category": "La mejor idea gana",
+    "prompt": "Una propuesta es popular, pero otra crea más valor. ¿Cuál debe avanzar?",
+    "options": [
+      "Seguir la jerarquía",
+      "Elegir la alternativa que mejor sirve al objetivo",
+      "Evitar cambiar",
+      "Esperar consenso total"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 20,
+    "category": "Siempre es el Día 1",
+    "prompt": "Un proceso funciona desde hace años, pero puede reducirse de ocho pasos a cuatro. ¿Qué conviene?",
+    "options": [
+      "Mantenerlo por costumbre",
+      "Cuestionar, probar y aprender",
+      "Esperar a que falle",
+      "Agregar burocracia"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 21,
+    "category": "Siempre es el Día 1",
+    "prompt": "El equipo supera su meta tres meses seguidos. ¿Cuál es la siguiente mentalidad?",
+    "options": [
+      "Mantenerlo por costumbre",
+      "Cuestionar, probar y aprender",
+      "Esperar a que falle",
+      "Agregar burocracia"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 22,
+    "category": "Siempre es el Día 1",
+    "prompt": "Una práctica que servía cuando la empresa era pequeña hoy genera fricción. ¿Qué debería pasar?",
+    "options": [
+      "Mantenerlo por costumbre",
+      "Cuestionar, probar y aprender",
+      "Esperar a que falle",
+      "Agregar burocracia"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 23,
+    "category": "Siempre es el Día 1",
+    "prompt": "Un error revela una debilidad repetible del sistema. ¿Qué respuesta genera más aprendizaje?",
+    "options": [
+      "Mantenerlo por costumbre",
+      "Cuestionar, probar y aprender",
+      "Esperar a que falle",
+      "Agregar burocracia"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 24,
+    "category": "Siempre es el Día 1",
+    "prompt": "Una herramienta nueva puede ahorrar trabajo repetitivo. ¿Qué enfoque tiene más sentido?",
+    "options": [
+      "Mantenerlo por costumbre",
+      "Cuestionar, probar y aprender",
+      "Esperar a que falle",
+      "Agregar burocracia"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 25,
+    "category": "Siempre es el Día 1",
+    "prompt": "Una solución temporal lleva un año convertida en proceso permanente. ¿Qué pregunta corresponde?",
+    "options": [
+      "Mantenerlo por costumbre",
+      "Cuestionar, probar y aprender",
+      "Esperar a que falle",
+      "Agregar burocracia"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 26,
+    "category": "Siempre es el Día 1",
+    "prompt": "Una persona nueva pregunta por qué se hace algo así y nadie sabe responder. ¿Qué debería provocar?",
+    "options": [
+      "Mantenerlo por costumbre",
+      "Cuestionar, probar y aprender",
+      "Esperar a que falle",
+      "Agregar burocracia"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 27,
+    "category": "Siempre es el Día 1",
+    "prompt": "Un producto vende bien, pero aparecen fricciones repetidas en clientes. ¿Qué conviene?",
+    "options": [
+      "Mantenerlo por costumbre",
+      "Cuestionar, probar y aprender",
+      "Esperar a que falle",
+      "Agregar burocracia"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 28,
+    "category": "Siempre es el Día 1",
+    "prompt": "El equipo logra un récord. ¿Cuál es la siguiente pregunta útil?",
+    "options": [
+      "Mantenerlo por costumbre",
+      "Cuestionar, probar y aprender",
+      "Esperar a que falle",
+      "Agregar burocracia"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 29,
+    "category": "Siempre es el Día 1",
+    "prompt": "Un procedimiento conserva aprobaciones cuyo propósito nadie recuerda. ¿Qué conviene?",
+    "options": [
+      "Mantenerlo por costumbre",
+      "Cuestionar, probar y aprender",
+      "Esperar a que falle",
+      "Agregar burocracia"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 30,
+    "category": "Siempre es el Día 1",
+    "prompt": "Una mejora pequeña ahorra minutos diarios a muchas personas. ¿Vale la pena evaluarla?",
+    "options": [
+      "Mantenerlo por costumbre",
+      "Cuestionar, probar y aprender",
+      "Esperar a que falle",
+      "Agregar burocracia"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 31,
+    "category": "Siempre es el Día 1",
+    "prompt": "El mercado cambia una expectativa del cliente rápidamente. ¿Qué actitud ayuda?",
+    "options": [
+      "Mantenerlo por costumbre",
+      "Cuestionar, probar y aprender",
+      "Esperar a que falle",
+      "Agregar burocracia"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 32,
+    "category": "Siempre es el Día 1",
+    "prompt": "Una reunión dura una hora por costumbre aunque ya no lo necesita. ¿Qué haría Día 1?",
+    "options": [
+      "Mantenerlo por costumbre",
+      "Cuestionar, probar y aprender",
+      "Esperar a que falle",
+      "Agregar burocracia"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 33,
+    "category": "Siempre es el Día 1",
+    "prompt": "Una métrica mejora, pero nadie entiende por qué. ¿Qué conviene hacer?",
+    "options": [
+      "Mantenerlo por costumbre",
+      "Cuestionar, probar y aprender",
+      "Esperar a que falle",
+      "Agregar burocracia"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 34,
+    "category": "Siempre es el Día 1",
+    "prompt": "Una oportunidad exige aprender algo nuevo rápidamente. ¿Qué enfoque encaja?",
+    "options": [
+      "Mantenerlo por costumbre",
+      "Cuestionar, probar y aprender",
+      "Esperar a que falle",
+      "Agregar burocracia"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 35,
+    "category": "Siempre es el Día 1",
+    "prompt": "Una forma de trabajar sigue igual solo porque siempre fue así. ¿Qué pregunta falta?",
+    "options": [
+      "Mantenerlo por costumbre",
+      "Cuestionar, probar y aprender",
+      "Esperar a que falle",
+      "Agregar burocracia"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 36,
+    "category": "Siempre es el Día 1",
+    "prompt": "Un experimento mejora 2% un proceso frecuente. ¿Cómo debería verse?",
+    "options": [
+      "Mantenerlo por costumbre",
+      "Cuestionar, probar y aprender",
+      "Esperar a que falle",
+      "Agregar burocracia"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 37,
+    "category": "Siempre es el Día 1",
+    "prompt": "Un equipo descubre una manera más rápida de hacer una tarea cotidiana. ¿Qué sigue?",
+    "options": [
+      "Mantenerlo por costumbre",
+      "Cuestionar, probar y aprender",
+      "Esperar a que falle",
+      "Agregar burocracia"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 38,
+    "category": "Siempre es el Día 1",
+    "prompt": "Una regla interna agrega trabajo sin mejorar resultado. ¿Qué mentalidad corresponde?",
+    "options": [
+      "Mantenerlo por costumbre",
+      "Cuestionar, probar y aprender",
+      "Esperar a que falle",
+      "Agregar burocracia"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 39,
+    "category": "Nada es demasiado loco",
+    "prompt": "Una idea parece extraña, puede probarse barato y tiene upside alto. ¿Qué conviene?",
+    "options": [
+      "Descartarlo por raro",
+      "Diseñar un experimento controlado",
+      "Escalar sin medir",
+      "Esperar certeza total"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 40,
+    "category": "Nada es demasiado loco",
+    "prompt": "Alguien propone algo que nadie en la industria hace. ¿Cuál es la mejor primera reacción?",
+    "options": [
+      "Descartarlo por raro",
+      "Diseñar un experimento controlado",
+      "Escalar sin medir",
+      "Esperar certeza total"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 41,
+    "category": "Nada es demasiado loco",
+    "prompt": "Una apuesta tiene baja probabilidad, gran upside y un test barato. ¿Qué tiene sentido?",
+    "options": [
+      "Descartarlo por raro",
+      "Diseñar un experimento controlado",
+      "Escalar sin medir",
+      "Esperar certeza total"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 42,
+    "category": "Nada es demasiado loco",
+    "prompt": "Una propuesta provoca 'eso nunca se ha hecho'. ¿Qué debería venir después?",
+    "options": [
+      "Descartarlo por raro",
+      "Diseñar un experimento controlado",
+      "Escalar sin medir",
+      "Esperar certeza total"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 43,
+    "category": "Nada es demasiado loco",
+    "prompt": "Un experimento creativo falla pero genera aprendizaje útil. ¿Fue necesariamente mala decisión?",
+    "options": [
+      "Descartarlo por raro",
+      "Diseñar un experimento controlado",
+      "Escalar sin medir",
+      "Esperar certeza total"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 44,
+    "category": "Nada es demasiado loco",
+    "prompt": "Una idea audaz puede probarse con pocos clientes antes de escalar. ¿Cuál es el enfoque correcto?",
+    "options": [
+      "Descartarlo por raro",
+      "Diseñar un experimento controlado",
+      "Escalar sin medir",
+      "Esperar certeza total"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 45,
+    "category": "Nada es demasiado loco",
+    "prompt": "Una persona evita compartir una idea porque teme que suene absurda. ¿Qué cultura queremos?",
+    "options": [
+      "Descartarlo por raro",
+      "Diseñar un experimento controlado",
+      "Escalar sin medir",
+      "Esperar certeza total"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 46,
+    "category": "Nada es demasiado loco",
+    "prompt": "Una oportunidad inesperada está alineada con el propósito aunque no estaba en el plan. ¿Qué conviene?",
+    "options": [
+      "Descartarlo por raro",
+      "Diseñar un experimento controlado",
+      "Escalar sin medir",
+      "Esperar certeza total"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 47,
+    "category": "Nada es demasiado loco",
+    "prompt": "Dos ideas tienen riesgo similar y una tiene upside mucho mayor. ¿Qué conviene?",
+    "options": [
+      "Descartarlo por raro",
+      "Diseñar un experimento controlado",
+      "Escalar sin medir",
+      "Esperar certeza total"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 48,
+    "category": "Nada es demasiado loco",
+    "prompt": "Una prueba barata puede invalidar una gran suposición en 48 horas. ¿Qué sería mejor?",
+    "options": [
+      "Descartarlo por raro",
+      "Diseñar un experimento controlado",
+      "Escalar sin medir",
+      "Esperar certeza total"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 49,
+    "category": "Nada es demasiado loco",
+    "prompt": "Una idea recibe diez razones por las que podría fallar. ¿Qué pregunta equilibra la discusión?",
+    "options": [
+      "Descartarlo por raro",
+      "Diseñar un experimento controlado",
+      "Escalar sin medir",
+      "Esperar certeza total"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 50,
+    "category": "Nada es demasiado loco",
+    "prompt": "Un concepto nuevo no tiene benchmark directo. ¿Significa que no debe probarse?",
+    "options": [
+      "Descartarlo por raro",
+      "Diseñar un experimento controlado",
+      "Escalar sin medir",
+      "Esperar certeza total"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 51,
+    "category": "Nada es demasiado loco",
+    "prompt": "Una idea grande puede dividirse en experimentos pequeños. ¿Qué reduce mejor el riesgo?",
+    "options": [
+      "Descartarlo por raro",
+      "Diseñar un experimento controlado",
+      "Escalar sin medir",
+      "Esperar certeza total"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 52,
+    "category": "Nada es demasiado loco",
+    "prompt": "Un equipo tiene muchas ideas seguras y una apuesta transformadora. ¿Qué portafolio tiene sentido?",
+    "options": [
+      "Descartarlo por raro",
+      "Diseñar un experimento controlado",
+      "Escalar sin medir",
+      "Esperar certeza total"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 53,
+    "category": "Nada es demasiado loco",
+    "prompt": "Una idea inicialmente ridícula empieza a mostrar resultados. ¿Qué debería pesar ahora?",
+    "options": [
+      "Descartarlo por raro",
+      "Diseñar un experimento controlado",
+      "Escalar sin medir",
+      "Esperar certeza total"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 54,
+    "category": "Nada es demasiado loco",
+    "prompt": "Una propuesta audaz tiene un mecanismo claro para limitar pérdidas. ¿Qué cambia?",
+    "options": [
+      "Descartarlo por raro",
+      "Diseñar un experimento controlado",
+      "Escalar sin medir",
+      "Esperar certeza total"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 55,
+    "category": "Nada es demasiado loco",
+    "prompt": "Un experimento rompe una convención sin poner en riesgo al cliente. ¿Qué actitud conviene?",
+    "options": [
+      "Descartarlo por raro",
+      "Diseñar un experimento controlado",
+      "Escalar sin medir",
+      "Esperar certeza total"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 56,
+    "category": "Nada es demasiado loco",
+    "prompt": "Una oportunidad creativa necesita una prueba de una semana. ¿Qué debería definirse antes?",
+    "options": [
+      "Descartarlo por raro",
+      "Diseñar un experimento controlado",
+      "Escalar sin medir",
+      "Esperar certeza total"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 57,
+    "category": "Nada es demasiado loco",
+    "prompt": "Una idea inesperada resuelve un problema que nadie había cuestionado. ¿Qué sigue?",
+    "options": [
+      "Descartarlo por raro",
+      "Diseñar un experimento controlado",
+      "Escalar sin medir",
+      "Esperar certeza total"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 58,
+    "category": "Los datos tienen la última palabra",
+    "prompt": "Tres personas explican distinto una caída en ventas. ¿Qué sigue?",
+    "options": [
+      "Decidir por opinión",
+      "Validar evidencia y usarla para decidir",
+      "Elegir la versión favorita",
+      "Cambiar la métrica"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 59,
+    "category": "Los datos tienen la última palabra",
+    "prompt": "Una campaña gusta internamente pero convierte peor que otra. ¿Qué debería pesar más?",
+    "options": [
+      "Decidir por opinión",
+      "Validar evidencia y usarla para decidir",
+      "Elegir la versión favorita",
+      "Cambiar la métrica"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 60,
+    "category": "Los datos tienen la última palabra",
+    "prompt": "Un KPI contradice la impresión general del equipo. ¿Qué conviene?",
+    "options": [
+      "Decidir por opinión",
+      "Validar evidencia y usarla para decidir",
+      "Elegir la versión favorita",
+      "Cambiar la métrica"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 61,
+    "category": "Los datos tienen la última palabra",
+    "prompt": "Una prueba A/B tiene diferencia clara y muestra suficiente. ¿Qué guía la decisión?",
+    "options": [
+      "Decidir por opinión",
+      "Validar evidencia y usarla para decidir",
+      "Elegir la versión favorita",
+      "Cambiar la métrica"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 62,
+    "category": "Los datos tienen la última palabra",
+    "prompt": "Una iniciativa lleva meses sin mover su métrica objetivo. ¿Qué conviene?",
+    "options": [
+      "Decidir por opinión",
+      "Validar evidencia y usarla para decidir",
+      "Elegir la versión favorita",
+      "Cambiar la métrica"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 63,
+    "category": "Los datos tienen la última palabra",
+    "prompt": "Ventas suben mientras el margen cae fuerte. ¿Qué lectura es mejor?",
+    "options": [
+      "Decidir por opinión",
+      "Validar evidencia y usarla para decidir",
+      "Elegir la versión favorita",
+      "Cambiar la métrica"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 64,
+    "category": "Los datos tienen la última palabra",
+    "prompt": "Alguien dice 'los clientes aman esto' basándose en tres comentarios. ¿Qué falta?",
+    "options": [
+      "Decidir por opinión",
+      "Validar evidencia y usarla para decidir",
+      "Elegir la versión favorita",
+      "Cambiar la métrica"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 65,
+    "category": "Los datos tienen la última palabra",
+    "prompt": "Dos métricas cuentan historias opuestas. ¿Qué debería hacerse?",
+    "options": [
+      "Decidir por opinión",
+      "Validar evidencia y usarla para decidir",
+      "Elegir la versión favorita",
+      "Cambiar la métrica"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 66,
+    "category": "Los datos tienen la última palabra",
+    "prompt": "Una hipótesis parecía obvia y el experimento la contradice. ¿Qué respuesta es más fuerte?",
+    "options": [
+      "Decidir por opinión",
+      "Validar evidencia y usarla para decidir",
+      "Elegir la versión favorita",
+      "Cambiar la métrica"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 67,
+    "category": "Los datos tienen la última palabra",
+    "prompt": "Una métrica sube tras un cambio, pero hubo una promoción simultánea. ¿Qué falta?",
+    "options": [
+      "Decidir por opinión",
+      "Validar evidencia y usarla para decidir",
+      "Elegir la versión favorita",
+      "Cambiar la métrica"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 68,
+    "category": "Los datos tienen la última palabra",
+    "prompt": "Un dashboard tiene 40 métricas. ¿Qué ayuda a decidir mejor?",
+    "options": [
+      "Decidir por opinión",
+      "Validar evidencia y usarla para decidir",
+      "Elegir la versión favorita",
+      "Cambiar la métrica"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 69,
+    "category": "Los datos tienen la última palabra",
+    "prompt": "Una decisión urgente no tiene datos perfectos. ¿Qué enfoque es mejor?",
+    "options": [
+      "Decidir por opinión",
+      "Validar evidencia y usarla para decidir",
+      "Elegir la versión favorita",
+      "Cambiar la métrica"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 70,
+    "category": "Los datos tienen la última palabra",
+    "prompt": "Una métrica mejora dentro de la variación normal. ¿Qué conviene?",
+    "options": [
+      "Decidir por opinión",
+      "Validar evidencia y usarla para decidir",
+      "Elegir la versión favorita",
+      "Cambiar la métrica"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 71,
+    "category": "Los datos tienen la última palabra",
+    "prompt": "Un proyecto produce muchos outputs sin outcome medible. ¿Qué falta?",
+    "options": [
+      "Decidir por opinión",
+      "Validar evidencia y usarla para decidir",
+      "Elegir la versión favorita",
+      "Cambiar la métrica"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 72,
+    "category": "Los datos tienen la última palabra",
+    "prompt": "Los datos muestran que una creencia histórica ya no es cierta. ¿Qué debería cambiar?",
+    "options": [
+      "Decidir por opinión",
+      "Validar evidencia y usarla para decidir",
+      "Elegir la versión favorita",
+      "Cambiar la métrica"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 73,
+    "category": "Los datos tienen la última palabra",
+    "prompt": "Una muestra pequeña parece espectacular. ¿Qué debería revisarse antes de escalar?",
+    "options": [
+      "Decidir por opinión",
+      "Validar evidencia y usarla para decidir",
+      "Elegir la versión favorita",
+      "Cambiar la métrica"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 74,
+    "category": "Los datos tienen la última palabra",
+    "prompt": "Dos equipos usan definiciones distintas para el mismo KPI. ¿Qué debe ocurrir?",
+    "options": [
+      "Decidir por opinión",
+      "Validar evidencia y usarla para decidir",
+      "Elegir la versión favorita",
+      "Cambiar la métrica"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 75,
+    "category": "Los datos tienen la última palabra",
+    "prompt": "Un resultado negativo contradice expectativas. ¿Qué conducta ayuda más?",
+    "options": [
+      "Decidir por opinión",
+      "Validar evidencia y usarla para decidir",
+      "Elegir la versión favorita",
+      "Cambiar la métrica"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 76,
+    "category": "Los datos tienen la última palabra",
+    "prompt": "Una iniciativa se declara exitosa sin baseline. ¿Qué problema existe?",
+    "options": [
+      "Decidir por opinión",
+      "Validar evidencia y usarla para decidir",
+      "Elegir la versión favorita",
+      "Cambiar la métrica"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 77,
+    "category": "Adueñate de tu palabra",
+    "prompt": "Una entrega prometida para hoy está en riesgo. ¿Qué debería ocurrir primero?",
+    "options": [
+      "Esperar a que alguien pregunte",
+      "Comunicar, asumir responsabilidad y acordar el siguiente paso",
+      "Ocultarlo",
+      "Trasladar responsabilidad"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 78,
+    "category": "Adueñate de tu palabra",
+    "prompt": "Una persona acepta más compromisos de los que razonablemente puede cumplir. ¿Qué falla?",
+    "options": [
+      "Esperar a que alguien pregunte",
+      "Comunicar, asumir responsabilidad y acordar el siguiente paso",
+      "Ocultarlo",
+      "Trasladar responsabilidad"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 79,
+    "category": "Adueñate de tu palabra",
+    "prompt": "Un problema pasa entre departamentos y nadie lo toma. ¿Qué conducta ayuda?",
+    "options": [
+      "Esperar a que alguien pregunte",
+      "Comunicar, asumir responsabilidad y acordar el siguiente paso",
+      "Ocultarlo",
+      "Trasladar responsabilidad"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 80,
+    "category": "Adueñate de tu palabra",
+    "prompt": "Alguien descubre un error propio que nadie ha visto. ¿Qué representa mejor integridad?",
+    "options": [
+      "Esperar a que alguien pregunte",
+      "Comunicar, asumir responsabilidad y acordar el siguiente paso",
+      "Ocultarlo",
+      "Trasladar responsabilidad"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 81,
+    "category": "Adueñate de tu palabra",
+    "prompt": "Un compromiso deja de tener sentido por nueva información. ¿Qué significa adueñarse de la palabra?",
+    "options": [
+      "Esperar a que alguien pregunte",
+      "Comunicar, asumir responsabilidad y acordar el siguiente paso",
+      "Ocultarlo",
+      "Trasladar responsabilidad"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 82,
+    "category": "Adueñate de tu palabra",
+    "prompt": "Una persona dice sí para evitar una conversación incómoda y luego no cumple. ¿Qué hubiera sido mejor?",
+    "options": [
+      "Esperar a que alguien pregunte",
+      "Comunicar, asumir responsabilidad y acordar el siguiente paso",
+      "Ocultarlo",
+      "Trasladar responsabilidad"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 83,
+    "category": "Adueñate de tu palabra",
+    "prompt": "Una promesa al cliente depende de otra área. ¿Quién debe asegurar el seguimiento?",
+    "options": [
+      "Esperar a que alguien pregunte",
+      "Comunicar, asumir responsabilidad y acordar el siguiente paso",
+      "Ocultarlo",
+      "Trasladar responsabilidad"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 84,
+    "category": "Adueñate de tu palabra",
+    "prompt": "Un deadline se mueve repetidamente sin explicación. ¿Qué se erosiona?",
+    "options": [
+      "Esperar a que alguien pregunte",
+      "Comunicar, asumir responsabilidad y acordar el siguiente paso",
+      "Ocultarlo",
+      "Trasladar responsabilidad"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 85,
+    "category": "Adueñate de tu palabra",
+    "prompt": "Una persona comunica riesgos solo al último minuto. ¿Qué puede mejorar?",
+    "options": [
+      "Esperar a que alguien pregunte",
+      "Comunicar, asumir responsabilidad y acordar el siguiente paso",
+      "Ocultarlo",
+      "Trasladar responsabilidad"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 86,
+    "category": "Adueñate de tu palabra",
+    "prompt": "Se comete un error que afecta a otro equipo. ¿Qué respuesta genera más confianza?",
+    "options": [
+      "Esperar a que alguien pregunte",
+      "Comunicar, asumir responsabilidad y acordar el siguiente paso",
+      "Ocultarlo",
+      "Trasladar responsabilidad"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 87,
+    "category": "Adueñate de tu palabra",
+    "prompt": "Un compromiso depende de información que todavía no existe. ¿Qué sería responsable?",
+    "options": [
+      "Esperar a que alguien pregunte",
+      "Comunicar, asumir responsabilidad y acordar el siguiente paso",
+      "Ocultarlo",
+      "Trasladar responsabilidad"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 88,
+    "category": "Adueñate de tu palabra",
+    "prompt": "Una tarea cambia de dueño. ¿Qué evita que caiga entre grietas?",
+    "options": [
+      "Esperar a que alguien pregunte",
+      "Comunicar, asumir responsabilidad y acordar el siguiente paso",
+      "Ocultarlo",
+      "Trasladar responsabilidad"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 89,
+    "category": "Adueñate de tu palabra",
+    "prompt": "Una persona estima mal repetidamente. ¿Qué demuestra ownership?",
+    "options": [
+      "Esperar a que alguien pregunte",
+      "Comunicar, asumir responsabilidad y acordar el siguiente paso",
+      "Ocultarlo",
+      "Trasladar responsabilidad"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 90,
+    "category": "Adueñate de tu palabra",
+    "prompt": "Un acuerdo verbal importante quedó ambiguo. ¿Qué ayuda?",
+    "options": [
+      "Esperar a que alguien pregunte",
+      "Comunicar, asumir responsabilidad y acordar el siguiente paso",
+      "Ocultarlo",
+      "Trasladar responsabilidad"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 91,
+    "category": "Adueñate de tu palabra",
+    "prompt": "Dos prioridades no pueden cumplirse simultáneamente. ¿Qué debería ocurrir?",
+    "options": [
+      "Esperar a que alguien pregunte",
+      "Comunicar, asumir responsabilidad y acordar el siguiente paso",
+      "Ocultarlo",
+      "Trasladar responsabilidad"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 92,
+    "category": "Adueñate de tu palabra",
+    "prompt": "Una promesa se cumplió, pero con calidad muy inferior a lo acordado. ¿Cuenta como cumplimiento?",
+    "options": [
+      "Esperar a que alguien pregunte",
+      "Comunicar, asumir responsabilidad y acordar el siguiente paso",
+      "Ocultarlo",
+      "Trasladar responsabilidad"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 93,
+    "category": "Adueñate de tu palabra",
+    "prompt": "Una persona nota que otra entendió una fecha diferente. ¿Qué corresponde?",
+    "options": [
+      "Esperar a que alguien pregunte",
+      "Comunicar, asumir responsabilidad y acordar el siguiente paso",
+      "Ocultarlo",
+      "Trasladar responsabilidad"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 94,
+    "category": "Adueñate de tu palabra",
+    "prompt": "Una dependencia externa amenaza un compromiso. ¿Qué conducta protege la confianza?",
+    "options": [
+      "Esperar a que alguien pregunte",
+      "Comunicar, asumir responsabilidad y acordar el siguiente paso",
+      "Ocultarlo",
+      "Trasladar responsabilidad"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 95,
+    "category": "Adueñate de tu palabra",
+    "prompt": "Una tarea importante quedó sin responsable explícito. ¿Qué debe resolverse?",
+    "options": [
+      "Esperar a que alguien pregunte",
+      "Comunicar, asumir responsabilidad y acordar el siguiente paso",
+      "Ocultarlo",
+      "Trasladar responsabilidad"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 96,
+    "category": "Misión",
+    "prompt": "Dos iniciativas tienen retorno similar. Una facilita regalar flores y amplía impacto cerca de la finca. ¿Cuál está más alineada?",
+    "options": [
+      "Maximizar actividad interna",
+      "Elegir lo que mejor conecta alegría, regalo de flores e impacto comunitario",
+      "Elegir lo más complejo",
+      "Elegir por jerarquía"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 97,
+    "category": "Misión",
+    "prompt": "¿Qué decisión conecta más directamente con la razón de existir de Aquarossa?",
+    "options": [
+      "Maximizar actividad interna",
+      "Elegir lo que mejor conecta alegría, regalo de flores e impacto comunitario",
+      "Elegir lo más complejo",
+      "Elegir por jerarquía"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 98,
+    "category": "Misión",
+    "prompt": "Una mejora reduce fricción al enviar un regalo floral. ¿Qué parte de la misión fortalece?",
+    "options": [
+      "Maximizar actividad interna",
+      "Elegir lo que mejor conecta alegría, regalo de flores e impacto comunitario",
+      "Elegir lo más complejo",
+      "Elegir por jerarquía"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 99,
+    "category": "Misión",
+    "prompt": "Una iniciativa aumenta ventas pero deteriora la experiencia de regalar flores. ¿Qué pregunta falta?",
+    "options": [
+      "Maximizar actividad interna",
+      "Elegir lo que mejor conecta alegría, regalo de flores e impacto comunitario",
+      "Elegir lo más complejo",
+      "Elegir por jerarquía"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 100,
+    "category": "Misión",
+    "prompt": "Un proyecto genera impacto cerca de la finca. ¿Qué análisis conecta mejor con la misión completa?",
+    "options": [
+      "Maximizar actividad interna",
+      "Elegir lo que mejor conecta alegría, regalo de flores e impacto comunitario",
+      "Elegir lo más complejo",
+      "Elegir por jerarquía"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 101,
+    "category": "Misión",
+    "prompt": "Una decisión mejora al comprador pero perjudica sistemáticamente a comunidades vinculadas a la finca. ¿Está plenamente alineada?",
+    "options": [
+      "Maximizar actividad interna",
+      "Elegir lo que mejor conecta alegría, regalo de flores e impacto comunitario",
+      "Elegir lo más complejo",
+      "Elegir por jerarquía"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 102,
+    "category": "Misión",
+    "prompt": "¿Qué indicador señalaría que la misión se está viviendo?",
+    "options": [
+      "Maximizar actividad interna",
+      "Elegir lo que mejor conecta alegría, regalo de flores e impacto comunitario",
+      "Elegir lo más complejo",
+      "Elegir por jerarquía"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 103,
+    "category": "Misión",
+    "prompt": "Una experiencia cuenta la historia de quienes participaron en crear el bouquet. ¿Por qué puede conectar?",
+    "options": [
+      "Maximizar actividad interna",
+      "Elegir lo que mejor conecta alegría, regalo de flores e impacto comunitario",
+      "Elegir lo más complejo",
+      "Elegir por jerarquía"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 104,
+    "category": "Misión",
+    "prompt": "Un proyecto hace más accesible regalar flores sin sacrificar calidad. ¿Tiene conexión con la misión?",
+    "options": [
+      "Maximizar actividad interna",
+      "Elegir lo que mejor conecta alegría, regalo de flores e impacto comunitario",
+      "Elegir lo más complejo",
+      "Elegir por jerarquía"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 105,
+    "category": "Misión",
+    "prompt": "¿Qué pregunta refleja mejor la misión al evaluar una iniciativa?",
+    "options": [
+      "Maximizar actividad interna",
+      "Elegir lo que mejor conecta alegría, regalo de flores e impacto comunitario",
+      "Elegir lo más complejo",
+      "Elegir por jerarquía"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 106,
+    "category": "Misión",
+    "prompt": "Una campaña habla solo de descuentos y nunca del significado del regalo. ¿Qué oportunidad existe?",
+    "options": [
+      "Maximizar actividad interna",
+      "Elegir lo que mejor conecta alegría, regalo de flores e impacto comunitario",
+      "Elegir lo más complejo",
+      "Elegir por jerarquía"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 107,
+    "category": "Misión",
+    "prompt": "Un proyecto social se comunica mucho pero no produce impacto verificable. ¿Qué problema existe?",
+    "options": [
+      "Maximizar actividad interna",
+      "Elegir lo que mejor conecta alegría, regalo de flores e impacto comunitario",
+      "Elegir lo más complejo",
+      "Elegir por jerarquía"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 108,
+    "category": "Misión",
+    "prompt": "¿Cuál escenario expresa mejor la misión en acción?",
+    "options": [
+      "Maximizar actividad interna",
+      "Elegir lo que mejor conecta alegría, regalo de flores e impacto comunitario",
+      "Elegir lo más complejo",
+      "Elegir por jerarquía"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 109,
+    "category": "Misión",
+    "prompt": "Una mejora logística hace que un regalo importante llegue a tiempo. ¿Cómo conecta?",
+    "options": [
+      "Maximizar actividad interna",
+      "Elegir lo que mejor conecta alegría, regalo de flores e impacto comunitario",
+      "Elegir lo más complejo",
+      "Elegir por jerarquía"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 110,
+    "category": "Misión",
+    "prompt": "Una iniciativa aumenta utilidad y fortalece propósito social. ¿Cómo debería verse?",
+    "options": [
+      "Maximizar actividad interna",
+      "Elegir lo que mejor conecta alegría, regalo de flores e impacto comunitario",
+      "Elegir lo más complejo",
+      "Elegir por jerarquía"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 111,
+    "category": "Misión",
+    "prompt": "Una experiencia ayuda al remitente a expresar mejor el mensaje detrás del regalo. ¿Qué fortalece?",
+    "options": [
+      "Maximizar actividad interna",
+      "Elegir lo que mejor conecta alegría, regalo de flores e impacto comunitario",
+      "Elegir lo más complejo",
+      "Elegir por jerarquía"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 112,
+    "category": "Misión",
+    "prompt": "Una iniciativa social no tiene continuidad económica. ¿Qué pregunta debería hacerse?",
+    "options": [
+      "Maximizar actividad interna",
+      "Elegir lo que mejor conecta alegría, regalo de flores e impacto comunitario",
+      "Elegir lo más complejo",
+      "Elegir por jerarquía"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 113,
+    "category": "Misión",
+    "prompt": "Una decisión reduce reclamos y hace más confiable el acto de regalar. ¿Cómo se relaciona?",
+    "options": [
+      "Maximizar actividad interna",
+      "Elegir lo que mejor conecta alegría, regalo de flores e impacto comunitario",
+      "Elegir lo más complejo",
+      "Elegir por jerarquía"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 114,
+    "category": "Misión",
+    "prompt": "Una alianza crea oportunidades reales en comunidades cercanas a la finca. ¿Qué debe medirse?",
+    "options": [
+      "Maximizar actividad interna",
+      "Elegir lo que mejor conecta alegría, regalo de flores e impacto comunitario",
+      "Elegir lo más complejo",
+      "Elegir por jerarquía"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 115,
+    "category": "Visión",
+    "prompt": "Dos inversiones cuestan igual: una agrega lujo y precio; otra acelera entrega manteniendo calidad. ¿Cuál acerca más a la visión?",
+    "options": [
+      "Priorizar lujo sin importar costo",
+      "Equilibrar alta calidad, accesibilidad, rapidez y precio",
+      "Maximizar pasos",
+      "Evitar innovación"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 116,
+    "category": "Visión",
+    "prompt": "¿Qué combinación describe mejor hacia dónde quiere ir Aquarossa?",
+    "options": [
+      "Priorizar lujo sin importar costo",
+      "Equilibrar alta calidad, accesibilidad, rapidez y precio",
+      "Maximizar pasos",
+      "Evitar innovación"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 117,
+    "category": "Visión",
+    "prompt": "Una mejora reduce tiempo de entrega sin sacrificar calidad. ¿Cómo encaja?",
+    "options": [
+      "Priorizar lujo sin importar costo",
+      "Equilibrar alta calidad, accesibilidad, rapidez y precio",
+      "Maximizar pasos",
+      "Evitar innovación"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 118,
+    "category": "Visión",
+    "prompt": "Una decisión mejora calidad pero vuelve el producto mucho menos accesible. ¿Qué tensión crea?",
+    "options": [
+      "Priorizar lujo sin importar costo",
+      "Equilibrar alta calidad, accesibilidad, rapidez y precio",
+      "Maximizar pasos",
+      "Evitar innovación"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 119,
+    "category": "Visión",
+    "prompt": "¿Qué KPI puede reflejar una parte central de la visión?",
+    "options": [
+      "Priorizar lujo sin importar costo",
+      "Equilibrar alta calidad, accesibilidad, rapidez y precio",
+      "Maximizar pasos",
+      "Evitar innovación"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 120,
+    "category": "Visión",
+    "prompt": "Una tecnología entrega más rápido pero aumenta errores de calidad. ¿Cumple completamente la visión?",
+    "options": [
+      "Priorizar lujo sin importar costo",
+      "Equilibrar alta calidad, accesibilidad, rapidez y precio",
+      "Maximizar pasos",
+      "Evitar innovación"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 121,
+    "category": "Visión",
+    "prompt": "Una propuesta reduce costos y permite bajar precio sin afectar producto. ¿Cómo conecta?",
+    "options": [
+      "Priorizar lujo sin importar costo",
+      "Equilibrar alta calidad, accesibilidad, rapidez y precio",
+      "Maximizar pasos",
+      "Evitar innovación"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 122,
+    "category": "Visión",
+    "prompt": "Un producto excelente tarda demasiado para ocasiones importantes. ¿Qué dimensión falla?",
+    "options": [
+      "Priorizar lujo sin importar costo",
+      "Equilibrar alta calidad, accesibilidad, rapidez y precio",
+      "Maximizar pasos",
+      "Evitar innovación"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 123,
+    "category": "Visión",
+    "prompt": "Una opción accesible conserva estándares altos de calidad. ¿Qué idea refleja?",
+    "options": [
+      "Priorizar lujo sin importar costo",
+      "Equilibrar alta calidad, accesibilidad, rapidez y precio",
+      "Maximizar pasos",
+      "Evitar innovación"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 124,
+    "category": "Visión",
+    "prompt": "¿Qué decisión estaría más alejada de la visión?",
+    "options": [
+      "Priorizar lujo sin importar costo",
+      "Equilibrar alta calidad, accesibilidad, rapidez y precio",
+      "Maximizar pasos",
+      "Evitar innovación"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 125,
+    "category": "Visión",
+    "prompt": "Una expansión sirve nuevas ciudades con la misma calidad y mejor tiempo. ¿Qué representa?",
+    "options": [
+      "Priorizar lujo sin importar costo",
+      "Equilibrar alta calidad, accesibilidad, rapidez y precio",
+      "Maximizar pasos",
+      "Evitar innovación"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 126,
+    "category": "Visión",
+    "prompt": "Una mejora baja precio pero aumenta fuertemente reclamos. ¿Está alineada?",
+    "options": [
+      "Priorizar lujo sin importar costo",
+      "Equilibrar alta calidad, accesibilidad, rapidez y precio",
+      "Maximizar pasos",
+      "Evitar innovación"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 127,
+    "category": "Visión",
+    "prompt": "¿Qué pregunta estratégica refleja mejor la visión?",
+    "options": [
+      "Priorizar lujo sin importar costo",
+      "Equilibrar alta calidad, accesibilidad, rapidez y precio",
+      "Maximizar pasos",
+      "Evitar innovación"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 128,
+    "category": "Visión",
+    "prompt": "Un nuevo fulfillment center reduce un día de tránsito. ¿Qué dimensión fortalece?",
+    "options": [
+      "Priorizar lujo sin importar costo",
+      "Equilibrar alta calidad, accesibilidad, rapidez y precio",
+      "Maximizar pasos",
+      "Evitar innovación"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 129,
+    "category": "Visión",
+    "prompt": "Una innovación conserva calidad con menor precio final. ¿Qué tan alineada está?",
+    "options": [
+      "Priorizar lujo sin importar costo",
+      "Equilibrar alta calidad, accesibilidad, rapidez y precio",
+      "Maximizar pasos",
+      "Evitar innovación"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 130,
+    "category": "Visión",
+    "prompt": "Una mejora de empaque aumenta costo sin mejorar calidad percibida ni experiencia. ¿Qué debería preguntarse?",
+    "options": [
+      "Priorizar lujo sin importar costo",
+      "Equilibrar alta calidad, accesibilidad, rapidez y precio",
+      "Maximizar pasos",
+      "Evitar innovación"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 131,
+    "category": "Visión",
+    "prompt": "Una red logística aumenta cobertura y mantiene precio competitivo. ¿Qué fortalece?",
+    "options": [
+      "Priorizar lujo sin importar costo",
+      "Equilibrar alta calidad, accesibilidad, rapidez y precio",
+      "Maximizar pasos",
+      "Evitar innovación"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 132,
+    "category": "Visión",
+    "prompt": "Una decisión acelera entrega solo para un segmento muy pequeño y encarece todo el portafolio. ¿Qué tensión aparece?",
+    "options": [
+      "Priorizar lujo sin importar costo",
+      "Equilibrar alta calidad, accesibilidad, rapidez y precio",
+      "Maximizar pasos",
+      "Evitar innovación"
+    ],
+    "correct": 1
+  },
+  {
+    "id": 133,
+    "category": "Visión",
+    "prompt": "Un proceso reduce desperdicio y ayuda a sostener mejor precio. ¿Cómo puede apoyar la visión?",
+    "options": [
+      "Priorizar lujo sin importar costo",
+      "Equilibrar alta calidad, accesibilidad, rapidez y precio",
+      "Maximizar pasos",
+      "Evitar innovación"
+    ],
+    "correct": 1
+  }
+]

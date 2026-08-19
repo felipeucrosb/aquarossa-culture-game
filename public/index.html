@@ -1,93 +1,36 @@
-<!doctype html>
-<html lang="es">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Aquarossa Culture Battle</title>
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aquarossa Culture Battle</title><script src="/socket.io/socket.io.js"></script>
 <style>
-:root{--pink:#c6265a;--light:#fff1f6;--ink:#222;--muted:#777;--line:#ececf0}
-*{box-sizing:border-box}body{margin:0;background:#fafafa;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink)}
-.wrap{max-width:1050px;margin:auto;padding:24px}.brand{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}
-.logo{font-size:20px;font-weight:950}.room{font-size:12px;background:#111;color:#fff;border-radius:999px;padding:8px 12px;font-weight:800}
-.card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:24px}.hero{text-align:center;padding:42px 24px}
-.hero h1{font-size:42px;margin:0 0 10px;letter-spacing:-1.5px}.hero p{color:var(--muted)}
-.characters{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
-.char{background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px;cursor:pointer;transition:.15s}
-.char:hover{transform:translateY(-2px);border-color:#e9aec2}.char.selected{border:2px solid var(--pink);background:var(--light)}.char.taken{opacity:.45;pointer-events:none}
-.avatar{width:72px;height:72px;border-radius:50%;background:var(--light);display:grid;place-items:center;margin:0 auto 12px;font-size:30px;font-weight:950;color:var(--pink)}
-.char h3{margin:0;font-size:22px}.char small{color:var(--muted)}
-button{font:inherit;cursor:pointer}.primary{background:var(--pink);color:#fff;border:0;border-radius:14px;padding:13px 18px;font-weight:900}.primary:disabled{opacity:.4}
-.status{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:20px 0}.pill{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 12px;font-size:13px;font-weight:800}.pill.on{background:#eaf8ef;border-color:#bfe8cc}
-.game{display:none;grid-template-columns:minmax(0,1fr) 300px;gap:16px}.round h2{font-size:32px;margin:8px 0 16px}.kicker{font-size:12px;color:var(--pink);font-weight:950;text-transform:uppercase;letter-spacing:1.2px}.prompt{font-size:19px;line-height:1.45;margin:20px 0}
-.opts{display:grid;gap:10px}.opt{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;text-align:left;font-weight:750}.opt:hover{border-color:#e9aec2}.opt.sel{background:var(--light);border-color:var(--pink)}.opt:disabled{cursor:default}
-.score-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line)}.score-row:last-child{border:0}
-.reveal{margin-top:18px;background:var(--light);border:1px solid #f1c5d4;border-radius:16px;padding:17px}.value{font-weight:950;color:var(--pink);font-size:20px}
-.finished{text-align:center}.winner{font-size:38px;font-weight:950;margin:12px 0}.hide{display:none!important}
-@media(max-width:780px){.characters{grid-template-columns:1fr}.game{grid-template-columns:1fr}.hero h1{font-size:34px}}
-</style>
-</head>
-<body>
-<div class="wrap">
-<div class="brand"><div class="logo">Aquarossa Culture Battle</div><div class="room">ROOM: AQUA</div></div>
-<section id="lobby" class="card hero">
-<div class="kicker">Leadership game · 3 players</div><h1>Elige tu personaje</h1>
-<p>Cris, Jessi y Felipe juegan simultáneamente desde sus propias computadoras.</p>
-<div class="characters" id="characters"></div><div class="status" id="status"></div>
-<button id="startBtn" class="primary" disabled>Empezar partida</button>
-</section>
-
-<section id="game" class="game">
-<main class="card round">
-<div id="roundKicker" class="kicker"></div><h2 id="title"></h2><div class="prompt" id="prompt"></div>
-<div class="opts" id="opts"></div>
-<div id="waiting" class="reveal hide">Respuesta enviada. Esperando a los demás jugadores...</div>
-<div id="reveal" class="reveal hide"></div>
-<button id="nextBtn" class="primary hide" style="margin-top:15px">Siguiente</button>
-</main>
-<aside class="card"><h3 style="margin-top:0">Score semanal</h3><div id="weekScore"></div><h3>Score acumulado</h3><div id="allScore"></div><h3>Semanas ganadas</h3><div id="wins"></div></aside>
-</section>
-
-<section id="finished" class="card finished hide">
-<div class="kicker">Partida terminada</div><h1>Leadership Scoreboard</h1><div id="winner" class="winner"></div><div id="finalScores"></div>
-<button id="newWeek" class="primary" style="margin-top:18px">Nueva semana</button>
-</section>
-</div>
-<script src="/socket.io/socket.io.js"></script>
+*{box-sizing:border-box}:root{--pink:#ef4d9a;--pink2:#ff7eb3;--ink:#242229;--muted:#77717b;--bg:#fff9fc}
+body{margin:0;font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:radial-gradient(circle at 15% 5%,#ffe3f0 0,transparent 26%),radial-gradient(circle at 95% 0,#f2e6ff 0,transparent 25%),var(--bg);min-height:100vh}
+.wrap{max-width:1180px;margin:auto;padding:30px 22px 60px} header{display:flex;justify-content:space-between;align-items:center;margin-bottom:32px} .brand{font-weight:900;letter-spacing:.16em} .brand b{color:var(--pink)} .pill{border:0;border-radius:999px;padding:11px 18px;background:white;box-shadow:0 8px 30px #d63b8012}
+.card{background:#ffffffd9;backdrop-filter:blur(14px);border:1px solid #fff;border-radius:30px;box-shadow:0 18px 60px #a02c6513;padding:28px}
+h1{font-size:clamp(36px,5vw,68px);line-height:.96;margin:15px 0} .grad{background:linear-gradient(100deg,#ed3f91,#b95cff,#6575ff);-webkit-background-clip:text;color:transparent}
+.sub{color:var(--muted);font-size:18px} .grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:28px}
+.founder{border:2px solid transparent;background:#fff;border-radius:26px;padding:16px;text-align:center;cursor:pointer;transition:.2s;box-shadow:0 10px 30px #d3478310}
+.founder:hover{transform:translateY(-3px)} .founder.sel{border-color:#ef4d9a;box-shadow:0 12px 36px #ef4d9a25} .avatar{height:112px;border-radius:22px;background:linear-gradient(145deg,#ffe0ed,#f4e8ff);display:grid;place-items:center;font-size:55px;font-weight:800}
+.founder strong{display:block;margin-top:12px;font-size:13px} .founder small{color:#8d8490} button.primary{border:0;border-radius:999px;padding:15px 26px;color:#fff;font-weight:800;background:linear-gradient(100deg,#ef4d9a,#c454df,#6e78ff);cursor:pointer}
+.center{text-align:center} #game,#finish{display:none} .gamegrid{display:grid;grid-template-columns:1fr 300px;gap:20px} .topline{display:flex;justify-content:space-between;align-items:center}
+.timer{width:88px;height:88px;border-radius:50%;display:grid;place-items:center;font-size:28px;font-weight:900;background:conic-gradient(#ef4d9a var(--p),#f2edf1 0);position:relative} .timer:after{content:"";position:absolute;inset:7px;border-radius:50%;background:white} .timer span{z-index:1}
+.tag{display:inline-block;padding:8px 13px;border-radius:999px;background:#ffe3f0;color:#c52975;font-weight:800;font-size:12px} .question{font-size:27px;font-weight:800;line-height:1.25;margin:28px 0}
+.option{width:100%;border:1px solid #f1e8ee;border-radius:20px;background:white;padding:17px 18px;margin:9px 0;text-align:left;font-size:15px;cursor:pointer;transition:.15s} .option:hover{border-color:#ef4d9a;transform:translateX(3px)} .option.chosen{background:#fff0f7;border-color:#ef4d9a}
+.score{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid #f3edf1} .bigscore{font-size:40px;font-weight:900} .reveal{margin-top:20px;padding:20px;border-radius:22px;background:linear-gradient(120deg,#fff0f7,#f4efff)} 
+@media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}.gamegrid{grid-template-columns:1fr}}
+</style></head><body><div class="wrap"><header><div class="brand"><b>✿</b> AQUAROSSA <small>CULTURE BATTLE</small></div><div class="pill">5 rounds · 30 sec</div></header>
+<section id="lobby" class="card"><div class="center"><div class="tag">WEEKLY CULTURE GAME</div><h1>Elige tu <span class="grad">founder.</span></h1><p class="sub">Cada decisión refleja cómo pensamos y trabajamos.</p></div><div class="grid" id="founders"></div><div class="center" style="margin-top:28px"><button class="primary" onclick="join()">Entrar al juego</button><p id="status" class="sub"></p><button class="primary" onclick="start()" style="display:none" id="start">Empezar partida</button></div></section>
+<section id="game"><div class="gamegrid"><div class="card"><div class="topline"><div><div id="round" class="tag"></div><div id="cat" class="sub" style="margin-top:8px"></div></div><div class="timer" id="timer"><span id="secs">30</span></div></div><div class="question" id="q"></div><div id="opts"></div><div id="reveal" class="reveal" style="display:none"></div></div><aside class="card"><div class="tag">LIVE SCORE</div><div id="scores"></div></aside></div></section>
+<section id="finish" class="card center"><div class="tag">FINAL</div><h1><span class="grad">Culture Battle</span></h1><div id="podium"></div><button class="primary" onclick="location.reload()">Volver al lobby</button></section></div>
 <script>
-const socket=io(); let me=localStorage.getItem("aquaCharacter"); let state=null,submitted=false;
-const initials={Cris:"C",Jessi:"J",Felipe:"F"};
-function choose(c){socket.emit("choose-character",{character:c})}
-socket.on("character-ok",c=>{me=c;localStorage.setItem("aquaCharacter",c);render()});
-socket.on("character-error",m=>alert(m)); socket.on("game-error",m=>alert(m));
-socket.on("state",s=>{state=s;if(s.phase!=="answer")submitted=false;render()});
-document.getElementById("startBtn").onclick=()=>socket.emit("start-game");
-document.getElementById("nextBtn").onclick=()=>socket.emit("next-round");
-document.getElementById("newWeek").onclick=()=>socket.emit("new-week");
-function scoreRows(obj){return Object.entries(obj).sort((a,b)=>b[1]-a[1]).map(([n,v])=>`<div class="score-row"><strong>${n}</strong><span>${v}</span></div>`).join("")}
-function render(){
- if(!state)return;
- const taken=Object.fromEntries(state.players.map(p=>[p.character,true]));
- document.getElementById("characters").innerHTML=state.characters.map(c=>`<div class="char ${me===c?"selected":""} ${taken[c]&&me!==c?"taken":""}" onclick="choose('${c}')"><div class="avatar">${initials[c]}</div><h3>${c}</h3><small>${taken[c]?(me===c?"Tu personaje":"Ya elegido"):"Disponible"}</small></div>`).join("");
- document.getElementById("status").innerHTML=state.characters.map(c=>`<span class="pill ${taken[c]?"on":""}">${c}: ${taken[c]?"Ready":"Esperando"}</span>`).join("");
- document.getElementById("startBtn").disabled=state.players.length!==3;
- const lobby=document.getElementById("lobby"),game=document.getElementById("game"),fin=document.getElementById("finished");
- if(state.phase==="lobby"){lobby.classList.remove("hide");game.style.display="none";fin.classList.add("hide");return}
- if(state.phase==="finished"){
-  lobby.classList.add("hide");game.style.display="none";fin.classList.remove("hide");
-  const max=Math.max(...Object.values(state.weeklyScore));const w=Object.entries(state.weeklyScore).filter(x=>x[1]===max).map(x=>x[0]);
-  document.getElementById("winner").textContent=(w.length>1?"Empate: ":"Ganador: ")+w.join(" & ");
-  document.getElementById("finalScores").innerHTML=scoreRows(state.weeklyScore);return;
- }
- lobby.classList.add("hide");fin.classList.add("hide");game.style.display="grid";
- document.getElementById("roundKicker").textContent=`${state.round.type} · Round ${state.roundIndex+1} de ${state.totalRounds}`;
- document.getElementById("title").textContent=state.round.title;document.getElementById("prompt").textContent=state.round.prompt;
- document.getElementById("weekScore").innerHTML=scoreRows(state.weeklyScore);document.getElementById("allScore").innerHTML=scoreRows(state.cumulative);document.getElementById("wins").innerHTML=scoreRows(state.weekWins);
- document.getElementById("opts").innerHTML=state.round.options.map((o,i)=>`<button class="opt" ${submitted||state.phase==="reveal"?"disabled":""} onclick="answer(${i},this)"><strong>${String.fromCharCode(65+i)}.</strong> ${o}</button>`).join("");
- document.getElementById("waiting").classList.toggle("hide",!(submitted&&state.phase==="answer"));
- const rev=document.getElementById("reveal");
- if(state.phase==="reveal"){rev.classList.remove("hide");rev.innerHTML=`<div class="value">${state.round.value}</div><p><strong>Respuesta recomendada: ${String.fromCharCode(65+state.round.correct)}</strong></p><p>${state.round.explain}</p>`;document.getElementById("nextBtn").classList.remove("hide")}
- else{rev.classList.add("hide");document.getElementById("nextBtn").classList.add("hide")}
-}
-function answer(i,el){if(submitted)return;submitted=true;document.querySelectorAll(".opt").forEach(x=>x.disabled=true);el.classList.add("sel");socket.emit("answer",{choice:i});render()}
-if(me)socket.emit("choose-character",{character:me});
-</script>
-</body></html>
+const socket=io(), founders=[{"name": "MR. BEZOS", "icon": "🚀", "trait": "Customer obsession"}, {"name": "MR. MUSK", "icon": "⚡", "trait": "Bold bets"}, {"name": "MR. GROVE", "icon": "♟️", "trait": "Strategic discipline"}, {"name": "MR. JOBS", "icon": "◉", "trait": "Product focus"}, {"name": "MR. ZUCKERBERG", "icon": "∞", "trait": "Scale fast"}, {"name": "MR. BRANSON", "icon": "✈", "trait": "Adventure"}, {"name": "MR. THIEL", "icon": "♞", "trait": "Contrarian thinking"}, {"name": "MR. KALANICK", "icon": "↗", "trait": "Relentless execution"}, {"name": "MR. NEUMANN", "icon": "△", "trait": "Big vision"}, {"name": "MR. DORSEY", "icon": "#", "trait": "Simplicity"}]; let selected=null,state=null,tick=null;
+const $=id=>document.getElementById(id);
+$("founders").innerHTML=founders.map((f,i)=>`<div class="founder" onclick="pick(${i})" id="f${i}"><div class="avatar">${f.icon}</div><strong>${f.name}</strong><small>${f.trait}</small></div>`).join("");
+function pick(i){selected=founders[i].name;document.querySelectorAll(".founder").forEach(x=>x.classList.remove("sel"));$("f"+i).classList.add("sel")}
+function join(){if(!selected)return alert("Elige un founder.");socket.emit("join",selected)}
+function start(){socket.emit("start")}
+function render(s){state=s;let ps=Object.values(s.players);$("status").textContent=ps.length?ps.map(x=>x.founder).join(" · ")+" listos":"Esperando jugadores…";$("start").style.display=ps.length>=2&&!s.active?"inline-block":"none";if(s.active&&s.question){$("lobby").style.display="none";$("game").style.display="block";$("round").textContent=`RONDA ${s.round+1} DE 5`;$("cat").textContent=s.question.category;$("q").textContent=s.question.prompt;$("opts").innerHTML=s.question.options.map((o,i)=>`<button class="option" onclick="answer(${i},this)"><b>${String.fromCharCode(65+i)}.</b> ${o}</button>`).join("");$("reveal").style.display="none";scores();clock()}}
+function scores(){$("scores").innerHTML=Object.values(state.players).sort((a,b)=>b.score-a.score).map(p=>`<div class="score"><span>${p.founder}</span><b class="bigscore">${p.score}</b></div>`).join("")}
+function clock(){clearInterval(tick);tick=setInterval(()=>{let n=Math.max(0,Math.ceil((state.deadline-Date.now())/1000));$("secs").textContent=n;$("timer").style.setProperty("--p",(n/30*360)+"deg");if(!n)clearInterval(tick)},200)}
+function answer(i,el){document.querySelectorAll(".option").forEach(x=>x.classList.remove("chosen"));el.classList.add("chosen");socket.emit("answer",i)}
+socket.on("state",render);socket.on("reveal",r=>{clearInterval(tick);$("reveal").style.display="block";$("reveal").innerHTML=`<b>Respuesta correcta: ${String.fromCharCode(65+r.q.correct)}</b><br><span>${r.q.category}</span>`});
+socket.on("finished",d=>{$("game").style.display="none";$("finish").style.display="block";let p=Object.values(d.players).sort((a,b)=>b.score-a.score);$("podium").innerHTML=p.map((x,i)=>`<div style="font-size:${i?22:34}px;margin:16px">${i===0?"WINNER · ":""}<b>${x.founder}</b> — ${x.score} pts</div>`).join("")});
+</script></body></html>
