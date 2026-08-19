@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aquarossa Culture Battle</title>
+<style>
+:root{--pink:#c6265a;--light:#fff1f6;--ink:#222;--muted:#777;--line:#ececf0}
+*{box-sizing:border-box}body{margin:0;background:#fafafa;font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink)}
+.wrap{max-width:1050px;margin:auto;padding:24px}.brand{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}
+.logo{font-size:20px;font-weight:950}.room{font-size:12px;background:#111;color:#fff;border-radius:999px;padding:8px 12px;font-weight:800}
+.card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:24px}.hero{text-align:center;padding:42px 24px}
+.hero h1{font-size:42px;margin:0 0 10px;letter-spacing:-1.5px}.hero p{color:var(--muted)}
+.characters{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+.char{background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px;cursor:pointer;transition:.15s}
+.char:hover{transform:translateY(-2px);border-color:#e9aec2}.char.selected{border:2px solid var(--pink);background:var(--light)}.char.taken{opacity:.45;pointer-events:none}
+.avatar{width:72px;height:72px;border-radius:50%;background:var(--light);display:grid;place-items:center;margin:0 auto 12px;font-size:30px;font-weight:950;color:var(--pink)}
+.char h3{margin:0;font-size:22px}.char small{color:var(--muted)}
+button{font:inherit;cursor:pointer}.primary{background:var(--pink);color:#fff;border:0;border-radius:14px;padding:13px 18px;font-weight:900}.primary:disabled{opacity:.4}
+.status{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:20px 0}.pill{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 12px;font-size:13px;font-weight:800}.pill.on{background:#eaf8ef;border-color:#bfe8cc}
+.game{display:none;grid-template-columns:minmax(0,1fr) 300px;gap:16px}.round h2{font-size:32px;margin:8px 0 16px}.kicker{font-size:12px;color:var(--pink);font-weight:950;text-transform:uppercase;letter-spacing:1.2px}.prompt{font-size:19px;line-height:1.45;margin:20px 0}
+.opts{display:grid;gap:10px}.opt{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;text-align:left;font-weight:750}.opt:hover{border-color:#e9aec2}.opt.sel{background:var(--light);border-color:var(--pink)}.opt:disabled{cursor:default}
+.score-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line)}.score-row:last-child{border:0}
+.reveal{margin-top:18px;background:var(--light);border:1px solid #f1c5d4;border-radius:16px;padding:17px}.value{font-weight:950;color:var(--pink);font-size:20px}
+.finished{text-align:center}.winner{font-size:38px;font-weight:950;margin:12px 0}.hide{display:none!important}
+@media(max-width:780px){.characters{grid-template-columns:1fr}.game{grid-template-columns:1fr}.hero h1{font-size:34px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="brand"><div class="logo">Aquarossa Culture Battle</div><div class="room">ROOM: AQUA</div></div>
+<section id="lobby" class="card hero">
+<div class="kicker">Leadership game · 3 players</div><h1>Elige tu personaje</h1>
+<p>Cris, Jessi y Felipe juegan simultáneamente desde sus propias computadoras.</p>
+<div class="characters" id="characters"></div><div class="status" id="status"></div>
+<button id="startBtn" class="primary" disabled>Empezar partida</button>
+</section>
+
+<section id="game" class="game">
+<main class="card round">
+<div id="roundKicker" class="kicker"></div><h2 id="title"></h2><div class="prompt" id="prompt"></div>
+<div class="opts" id="opts"></div>
+<div id="waiting" class="reveal hide">Respuesta enviada. Esperando a los demás jugadores...</div>
+<div id="reveal" class="reveal hide"></div>
+<button id="nextBtn" class="primary hide" style="margin-top:15px">Siguiente</button>
+</main>
+<aside class="card"><h3 style="margin-top:0">Score semanal</h3><div id="weekScore"></div><h3>Score acumulado</h3><div id="allScore"></div><h3>Semanas ganadas</h3><div id="wins"></div></aside>
+</section>
+
+<section id="finished" class="card finished hide">
+<div class="kicker">Partida terminada</div><h1>Leadership Scoreboard</h1><div id="winner" class="winner"></div><div id="finalScores"></div>
+<button id="newWeek" class="primary" style="margin-top:18px">Nueva semana</button>
+</section>
+</div>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+const socket=io(); let me=localStorage.getItem("aquaCharacter"); let state=null,submitted=false;
+const initials={Cris:"C",Jessi:"J",Felipe:"F"};
+function choose(c){socket.emit("choose-character",{character:c})}
+socket.on("character-ok",c=>{me=c;localStorage.setItem("aquaCharacter",c);render()});
+socket.on("character-error",m=>alert(m)); socket.on("game-error",m=>alert(m));
+socket.on("state",s=>{state=s;if(s.phase!=="answer")submitted=false;render()});
+document.getElementById("startBtn").onclick=()=>socket.emit("start-game");
+document.getElementById("nextBtn").onclick=()=>socket.emit("next-round");
+document.getElementById("newWeek").onclick=()=>socket.emit("new-week");
+function scoreRows(obj){return Object.entries(obj).sort((a,b)=>b[1]-a[1]).map(([n,v])=>`<div class="score-row"><strong>${n}</strong><span>${v}</span></div>`).join("")}
+function render(){
+ if(!state)return;
+ const taken=Object.fromEntries(state.players.map(p=>[p.character,true]));
+ document.getElementById("characters").innerHTML=state.characters.map(c=>`<div class="char ${me===c?"selected":""} ${taken[c]&&me!==c?"taken":""}" onclick="choose('${c}')"><div class="avatar">${initials[c]}</div><h3>${c}</h3><small>${taken[c]?(me===c?"Tu personaje":"Ya elegido"):"Disponible"}</small></div>`).join("");
+ document.getElementById("status").innerHTML=state.characters.map(c=>`<span class="pill ${taken[c]?"on":""}">${c}: ${taken[c]?"Ready":"Esperando"}</span>`).join("");
+ document.getElementById("startBtn").disabled=state.players.length!==3;
+ const lobby=document.getElementById("lobby"),game=document.getElementById("game"),fin=document.getElementById("finished");
+ if(state.phase==="lobby"){lobby.classList.remove("hide");game.style.display="none";fin.classList.add("hide");return}
+ if(state.phase==="finished"){
+  lobby.classList.add("hide");game.style.display="none";fin.classList.remove("hide");
+  const max=Math.max(...Object.values(state.weeklyScore));const w=Object.entries(state.weeklyScore).filter(x=>x[1]===max).map(x=>x[0]);
+  document.getElementById("winner").textContent=(w.length>1?"Empate: ":"Ganador: ")+w.join(" & ");
+  document.getElementById("finalScores").innerHTML=scoreRows(state.weeklyScore);return;
+ }
+ lobby.classList.add("hide");fin.classList.add("hide");game.style.display="grid";
+ document.getElementById("roundKicker").textContent=`${state.round.type} · Round ${state.roundIndex+1} de ${state.totalRounds}`;
+ document.getElementById("title").textContent=state.round.title;document.getElementById("prompt").textContent=state.round.prompt;
+ document.getElementById("weekScore").innerHTML=scoreRows(state.weeklyScore);document.getElementById("allScore").innerHTML=scoreRows(state.cumulative);document.getElementById("wins").innerHTML=scoreRows(state.weekWins);
+ document.getElementById("opts").innerHTML=state.round.options.map((o,i)=>`<button class="opt" ${submitted||state.phase==="reveal"?"disabled":""} onclick="answer(${i},this)"><strong>${String.fromCharCode(65+i)}.</strong> ${o}</button>`).join("");
+ document.getElementById("waiting").classList.toggle("hide",!(submitted&&state.phase==="answer"));
+ const rev=document.getElementById("reveal");
+ if(state.phase==="reveal"){rev.classList.remove("hide");rev.innerHTML=`<div class="value">${state.round.value}</div><p><strong>Respuesta recomendada: ${String.fromCharCode(65+state.round.correct)}</strong></p><p>${state.round.explain}</p>`;document.getElementById("nextBtn").classList.remove("hide")}
+ else{rev.classList.add("hide");document.getElementById("nextBtn").classList.add("hide")}
+}
+function answer(i,el){if(submitted)return;submitted=true;document.querySelectorAll(".opt").forEach(x=>x.disabled=true);el.classList.add("sel");socket.emit("answer",{choice:i});render()}
+if(me)socket.emit("choose-character",{character:me});
+</script>
+</body></html>
