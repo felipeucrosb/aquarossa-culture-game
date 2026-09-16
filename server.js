@@ -12,7 +12,6 @@ app.use(express.static(path.join(__dirname, "public")));
 
 const QUESTIONS = require("./questions.json");
 const FOUNDERS = require("./founders.json");
-const FOUNDER_NAMES = FOUNDERS.map(f => f.name);
 const DATA_FILE = path.join(__dirname, "data.json");
 
 const CATEGORY_EXPLAIN = {
@@ -82,8 +81,10 @@ function chooseWeekQuestions() {
   return selected;
 }
 
+const connected = {};
+
 const game = {
-  phase: "idle",
+  phase: "waiting",
   hostId: null,
   players: {},
   lobbyDeadline: 0,
@@ -96,13 +97,10 @@ const game = {
 let lobbyTimer = null, questionTimer = null, revealTimer = null;
 
 function activePlayers() { return Object.entries(game.players); }
-function founderTaken(founder, exceptId=null) {
-  return Object.entries(game.players).some(([id,p]) => id !== exceptId && p.founder === founder);
-}
 function publicPlayers() {
   const out = {};
   for (const [id,p] of Object.entries(game.players)) {
-    out[id] = { name:p.name, founder:p.founder, score:p.score, language:p.language || "es", host:id===game.hostId };
+    out[id] = { name:p.name, score:p.score, language:p.language || "es", host:id===game.hostId };
   }
   return out;
 }
@@ -143,14 +141,15 @@ function resetMatch() {
 }
 function openLobbyWaiting() {
   clearTimeout(lobbyTimer);
-  game.phase = "lobby";
+  game.phase = "waiting";
   game.lobbyDeadline = 0;
   game.matchId += 1;
   broadcast();
 }
 function startLobbyCountdown() {
-  if (game.phase !== "lobby" || game.lobbyDeadline) return;
+  if (game.phase !== "waiting") return;
   clearTimeout(lobbyTimer);
+  game.phase = "lobby";
   game.lobbyDeadline = Date.now() + 30000;
   const token = game.matchId;
   lobbyTimer = setTimeout(() => {
@@ -191,7 +190,7 @@ function revealRound() {
     const ans = game.answers[id] || null;
     const correct = !!ans && ans.choice === q.correct;
     if (correct) p.score += 1;
-    results[id] = { name:p.name, founder:p.founder, choice:ans ? ans.choice : null, correct };
+    results[id] = { name:p.name, choice:ans ? ans.choice : null, correct };
   }
   game.phase = "reveal";
   io.emit("reveal", {
@@ -217,7 +216,7 @@ function revealRound() {
 function finishMatch() {
   clearTimeout(questionTimer); clearTimeout(revealTimer);
   game.phase = "finished";
-  const rows = activePlayers().map(([id,p])=>({ id, name:p.name, founder:p.founder, score:p.score }))
+  const rows = activePlayers().map(([id,p])=>({ id, name:p.name, score:p.score }))
     .sort((a,b)=>b.score-a.score || a.name.localeCompare(b.name));
   const max = rows.length ? rows[0].score : 0;
   const winners = rows.filter(r => r.score === max).map(r=>r.name);
@@ -238,44 +237,44 @@ function finishMatch() {
   broadcast();
 }
 function assignNewHost() {
-  game.hostId = activePlayers()[0]?.[0] || null;
+  game.hostId = Object.keys(connected)[0] || null;
 }
 
 io.on("connection", socket => {
-  socket.emit("bootstrap", { founders:FOUNDERS });
+  // A browser first connects as a waiting client, NOT as a player.
+  // Each tab/device has its own socket id and local language preference.
+  connected[socket.id] = { language:"es" };
+  if (!game.hostId && ["waiting","idle"].includes(game.phase)) game.hostId = socket.id;
+
+  // If the lobby is already open, this browser joins the current match as its own player.
+  if (game.phase === "lobby" && activePlayers().length < 50) {
+    const number = activePlayers().length + 1;
+    game.players[socket.id] = { name:`Player ${number}`, language:connected[socket.id].language, score:0 };
+  }
+
+  socket.emit("bootstrap", {});
+  socket.emit("joined", { id:socket.id, host:socket.id===game.hostId });
   socket.emit("state", state());
-
-  socket.on("join", payload => {
-    if (!payload || typeof payload.name !== "string" || typeof payload.founder !== "string") return;
-    if (!FOUNDER_NAMES.includes(payload.founder)) return socket.emit("join-error", "Ese founder no existe.");
-    if (game.phase !== "idle" && game.phase !== "lobby") return socket.emit("join-error", "La partida ya empezó. Espera la siguiente.");
-    if (activePlayers().length >= 10) return socket.emit("join-error", "La partida ya tiene 10 participantes.");
-    if (founderTaken(payload.founder, socket.id)) return socket.emit("join-error", "Ese founder ya fue elegido.");
-
-    const name = payload.name.trim().slice(0,32);
-    if (!name) return socket.emit("join-error", "Escribe tu nombre.");
-
-    game.players[socket.id] = { name, founder:payload.founder, language:["en","es"].includes(payload.language)?payload.language:"es", score:0 };
-    if (!game.hostId) game.hostId = socket.id;
-    if (game.phase === "idle") openLobbyWaiting();
-    socket.emit("joined", { id:socket.id, host:socket.id===game.hostId });
-    broadcast();
-  });
-
-  socket.on("change-founder", founder => {
-    if (game.phase !== "lobby" || !game.players[socket.id]) return;
-    if (!FOUNDER_NAMES.includes(founder) || founderTaken(founder, socket.id)) return;
-    game.players[socket.id].founder = founder;
-    broadcast();
-  });
+  broadcast();
 
   socket.on("start-lobby", () => {
-    if (socket.id === game.hostId && game.phase === "lobby" && activePlayers().length >= 1 && !game.lobbyDeadline) startLobbyCountdown();
+    if (socket.id !== game.hostId || !["waiting","idle"].includes(game.phase)) return;
+    // Everyone who is already on the waiting page becomes a DISTINCT player
+    // at the exact moment the lobby opens.
+    game.players = {};
+    let number = 1;
+    for (const [id,c] of Object.entries(connected)) {
+      if (number > 50) break;
+      game.players[id] = { name:`Player ${number++}`, language:c.language || "es", score:0 };
+    }
+    game.phase = "waiting";
+    startLobbyCountdown();
   });
 
   socket.on("set-language", language => {
-    if (!game.players[socket.id] || !["en","es"].includes(language)) return;
-    game.players[socket.id].language = language;
+    if (!["en","es"].includes(language)) return;
+    if (connected[socket.id]) connected[socket.id].language = language;
+    if (game.players[socket.id]) game.players[socket.id].language = language;
     broadcast();
   });
 
@@ -290,16 +289,25 @@ io.on("connection", socket => {
   socket.on("new-match", () => {
     if (socket.id !== game.hostId || game.phase !== "finished") return;
     game.matchId += 1;
-    for (const [,p] of activePlayers()) p.score = 0;
-    openLobbyWaiting();
+    clearTimeout(lobbyTimer); clearTimeout(questionTimer); clearTimeout(revealTimer);
+    game.phase = "waiting";
+    game.players = {};
+    game.lobbyDeadline = 0;
+    game.questionDeadline = 0;
+    game.questions = [];
+    game.round = 0;
+    game.answers = {};
+    broadcast();
   });
 
   socket.on("disconnect", () => {
-    if (!game.players[socket.id]) return;
-    delete game.players[socket.id];
+    delete connected[socket.id];
+    const wasPlayer = !!game.players[socket.id];
+    if (wasPlayer) delete game.players[socket.id];
     if (socket.id === game.hostId) assignNewHost();
-    if (activePlayers().length === 0) resetMatch();
-    else if (game.phase === "question") maybeRevealEarly();
+    if (game.phase === "question" && wasPlayer) maybeRevealEarly();
+    // Do not reset the shared game merely because one browser leaves.
+    if (Object.keys(connected).length === 0 && ["waiting","idle","lobby"].includes(game.phase)) resetMatch();
     broadcast();
   });
 });
