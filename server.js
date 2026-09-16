@@ -16,13 +16,14 @@ const FOUNDER_NAMES = FOUNDERS.map(f => f.name);
 const DATA_FILE = path.join(__dirname, "data.json");
 
 const CATEGORY_EXPLAIN = {
-  "La mejor idea gana": "La jerarquía y el ego quedan en segundo plano. Gana la alternativa que mejor sirve a la misión, al cliente y al resultado.",
-  "Siempre es el Día 1": "La cultura Día 1 cuestiona la costumbre, aprende rápido y busca mejoras constantes sin caer en burocracia.",
-  "Nada es demasiado loco": "Las ideas audaces merecen espacio. La disciplina está en probarlas con riesgo controlado y aprender rápido.",
-  "Los datos tienen la última palabra": "Las opiniones abren preguntas; la evidencia ayuda a cerrarlas. Hay que validar el dato y dejar que informe la decisión.",
-  "Adueñate de tu palabra": "Cumplir, comunicar riesgos temprano y renegociar compromisos explícitamente construye confianza.",
-  "Misión": "Ayudar a las personas a compartir alegría y expresar cariño a través del regalo de flores, mientras apoyamos a comunidades lideradas por mujeres cerca de nuestra finca en Guatemala.",
-  "Visión": "Hacer que un servicio de entrega de flores de alta calidad sea accesible para todos, con el tiempo de entrega más rápido y al mejor precio."
+  "La mejor idea gana": { es:"No importa el cargo ni quién propuso la idea: gana la alternativa que mejor sirve al objetivo.", en:"Title and hierarchy do not decide: the idea that best serves the goal wins." },
+  "Siempre es el Día 1": { es:"Seguimos con hambre, curiosidad y disposición a mejorar aunque la empresa crezca.", en:"We stay hungry, curious, and willing to improve no matter how much the company grows." },
+  "Nada es demasiado loco": { es:"Las ideas audaces merecen espacio; no se descartan solo porque nunca se han hecho.", en:"Bold ideas deserve room; we do not reject them simply because they have never been done." },
+  "Los datos tienen la última palabra": { es:"Las opiniones abren la conversación; cuando la evidencia es clara, seguimos los datos.", en:"Opinions open the conversation; when the evidence is clear, we follow the data." },
+  "Adueñate de tu palabra": { es:"Cumplimos lo que prometemos y comunicamos riesgos temprano.", en:"We deliver on our commitments and communicate risks early." },
+  "Misión": { es:"Ayudar a las personas a compartir alegría y expresar cariño a través del regalo de flores, mientras apoyamos a comunidades lideradas por mujeres cerca de nuestra finca en Guatemala.", en:"Help people share joy and express care through the gift of flowers, while supporting women-led communities near our farm in Guatemala." },
+  "Visión": { es:"Hacer que un servicio de entrega de flores de alta calidad sea accesible para todos, con el tiempo de entrega más rápido y al mejor precio.", en:"Make a high-quality flower delivery service accessible to everyone, with the fastest delivery time and at the best price." },
+  "Valores": { es:"Nuestros cinco valores definen cómo pensamos, decidimos y cumplimos en Aquarossa.", en:"Our five values define how we think, decide, and deliver at Aquarossa." }
 };
 
 function defaultPersistent() {
@@ -56,6 +57,16 @@ function personStats(name) {
 // 7 categories + 5 rounds means at least 3 categories must overlap between
 // consecutive weeks. This scheduler enforces five distinct categories per match
 // and minimizes overlap to that theoretical minimum while favoring least-recently-used categories.
+function shuffleArray(arr) {
+  const a = arr.slice();
+  for (let i=a.length-1;i>0;i--) { const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; }
+  return a;
+}
+function prepareQuestion(q) {
+  const packed = q.options.map((option, idx) => ({ option, isCorrect: idx === q.correct }));
+  const shuffled = shuffleArray(packed);
+  return { ...q, options: shuffled.map(x=>x.option), correct: shuffled.findIndex(x=>x.isCorrect) };
+}
 function chooseWeekQuestions() {
   let unused = QUESTIONS.filter(q => !persistent.usedQuestionIds.includes(q.id));
   if (unused.length < 5) {
@@ -63,32 +74,10 @@ function chooseWeekQuestions() {
     persistent.cycle += 1;
     unused = QUESTIONS.slice();
   }
-
-  const cats = [...new Set(QUESTIONS.map(q => q.category))];
-  const last = new Set(persistent.lastWeekCategories || []);
-  const ranked = cats.map(c => ({ c, r: Math.random() }));
-  ranked.sort((a,b) => {
-    const aWas = last.has(a.c) ? 1 : 0;
-    const bWas = last.has(b.c) ? 1 : 0;
-    if (aWas !== bWas) return aWas - bWas;
-    const au = persistent.categoryLastUsedWeek[a.c] ?? -999;
-    const bu = persistent.categoryLastUsedWeek[b.c] ?? -999;
-    if (au !== bu) return au - bu;
-    return a.r - b.r;
-  });
-
-  const selectedCats = ranked.slice(0,5).map(x => x.c);
-  const selected = [];
-  for (const cat of selectedCats) {
-    let pool = unused.filter(q => q.category === cat && !selected.some(s => s.id === q.id));
-    if (!pool.length) pool = QUESTIONS.filter(q => q.category === cat && !selected.some(s => s.id === q.id));
-    selected.push(pool[Math.floor(Math.random()*pool.length)]);
-  }
-
+  const selected = shuffleArray(unused).slice(0,5).map(prepareQuestion);
   persistent.weekCounter += 1;
   persistent.usedQuestionIds.push(...selected.map(q => q.id));
-  persistent.lastWeekCategories = selectedCats;
-  for (const c of selectedCats) persistent.categoryLastUsedWeek[c] = persistent.weekCounter;
+  persistent.lastWeekCategories = selected.map(q=>q.category);
   persist();
   return selected;
 }
@@ -113,7 +102,7 @@ function founderTaken(founder, exceptId=null) {
 function publicPlayers() {
   const out = {};
   for (const [id,p] of Object.entries(game.players)) {
-    out[id] = { name:p.name, founder:p.founder, score:p.score, host:id===game.hostId };
+    out[id] = { name:p.name, founder:p.founder, score:p.score, language:p.language || "es", host:id===game.hostId };
   }
   return out;
 }
@@ -152,14 +141,21 @@ function resetMatch() {
   game.round = 0;
   game.answers = {};
 }
-function startLobbyCountdown() {
+function openLobbyWaiting() {
   clearTimeout(lobbyTimer);
   game.phase = "lobby";
-  game.lobbyDeadline = Date.now() + 60000;
-  const token = ++game.matchId;
+  game.lobbyDeadline = 0;
+  game.matchId += 1;
+  broadcast();
+}
+function startLobbyCountdown() {
+  if (game.phase !== "lobby" || game.lobbyDeadline) return;
+  clearTimeout(lobbyTimer);
+  game.lobbyDeadline = Date.now() + 30000;
+  const token = game.matchId;
   lobbyTimer = setTimeout(() => {
     if (game.matchId === token && game.phase === "lobby" && activePlayers().length >= 1) startMatch();
-  }, 60100);
+  }, 30100);
   broadcast();
 }
 function startMatch() {
@@ -259,9 +255,9 @@ io.on("connection", socket => {
     const name = payload.name.trim().slice(0,32);
     if (!name) return socket.emit("join-error", "Escribe tu nombre.");
 
-    game.players[socket.id] = { name, founder:payload.founder, score:0 };
+    game.players[socket.id] = { name, founder:payload.founder, language:["en","es"].includes(payload.language)?payload.language:"es", score:0 };
     if (!game.hostId) game.hostId = socket.id;
-    if (game.phase === "idle") startLobbyCountdown();
+    if (game.phase === "idle") openLobbyWaiting();
     socket.emit("joined", { id:socket.id, host:socket.id===game.hostId });
     broadcast();
   });
@@ -273,13 +269,19 @@ io.on("connection", socket => {
     broadcast();
   });
 
-  socket.on("start-now", () => {
-    if (socket.id === game.hostId && game.phase === "lobby" && activePlayers().length >= 1) startMatch();
+  socket.on("start-lobby", () => {
+    if (socket.id === game.hostId && game.phase === "lobby" && activePlayers().length >= 1 && !game.lobbyDeadline) startLobbyCountdown();
+  });
+
+  socket.on("set-language", language => {
+    if (!game.players[socket.id] || !["en","es"].includes(language)) return;
+    game.players[socket.id].language = language;
+    broadcast();
   });
 
   socket.on("answer", choice => {
     if (game.phase !== "question" || !game.players[socket.id] || game.answers[socket.id]) return;
-    if (!Number.isInteger(choice) || choice < 0 || choice > 3) return;
+    if (!Number.isInteger(choice) || choice < 0 || choice > 2) return;
     game.answers[socket.id] = { choice };
     broadcast();
     maybeRevealEarly();
@@ -289,7 +291,7 @@ io.on("connection", socket => {
     if (socket.id !== game.hostId || game.phase !== "finished") return;
     game.matchId += 1;
     for (const [,p] of activePlayers()) p.score = 0;
-    startLobbyCountdown();
+    openLobbyWaiting();
   });
 
   socket.on("disconnect", () => {
@@ -302,4 +304,4 @@ io.on("connection", socket => {
   });
 });
 
-server.listen(process.env.PORT || 3000, () => console.log("Aquarossa Culture Battle V5 ready"));
+server.listen(process.env.PORT || 3000, () => console.log("Aquarossa Culture Battle V6 ready"));
