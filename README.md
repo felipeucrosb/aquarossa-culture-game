@@ -15,3 +15,10 @@
 npm install
 npm start
 ```
+
+## Corrección de respuestas (12 de noviembre de 2026)
+- Cada partida de cinco preguntas incluye respuestas correctas en A, B y C.
+- Cada letra aparece una o dos veces, con posiciones aleatorias por partida.
+- El servidor conserva la correspondencia entre la opción correcta y su nueva letra, en ambos idiomas.
+- Todos los jugadores ven el mismo orden.
+- Para aplicar: reemplaza los archivos del servidor y reinicia o vuelve a desplegar la aplicación. No es necesario borrar data.json.

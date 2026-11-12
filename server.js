@@ -61,10 +61,17 @@ function shuffleArray(arr) {
   for (let i=a.length-1;i>0;i--) { const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; }
   return a;
 }
-function prepareQuestion(q) {
-  const packed = q.options.map((option, idx) => ({ option, isCorrect: idx === q.correct }));
-  const shuffled = shuffleArray(packed);
-  return { ...q, options: shuffled.map(x=>x.option), correct: shuffled.findIndex(x=>x.isCorrect) };
+function prepareQuestion(q, correctPosition) {
+  const options = shuffleArray(q.options.filter((_, idx) => idx !== q.correct));
+  options.splice(correctPosition, 0, q.options[q.correct]);
+  return { ...q, options, correct: correctPosition };
+}
+function prepareMatchQuestions(questions) {
+  // Each letter appears once or twice in a five-round match. Randomize both
+  // the extra letters and their round positions; all players share this order.
+  const letters = shuffleArray([0, 1, 2]);
+  const positions = shuffleArray(questions.map((_, i) => letters[i % letters.length]));
+  return questions.map((q, i) => prepareQuestion(q, positions[i]));
 }
 function chooseWeekQuestions() {
   let unused = QUESTIONS.filter(q => !persistent.usedQuestionIds.includes(q.id));
@@ -73,7 +80,7 @@ function chooseWeekQuestions() {
     persistent.cycle += 1;
     unused = QUESTIONS.slice();
   }
-  const selected = shuffleArray(unused).slice(0,5).map(prepareQuestion);
+  const selected = prepareMatchQuestions(shuffleArray(unused).slice(0,5));
   persistent.weekCounter += 1;
   persistent.usedQuestionIds.push(...selected.map(q => q.id));
   persistent.lastWeekCategories = selected.map(q=>q.category);
