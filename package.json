@@ -1,9 +1,10 @@
 {
-  "name": "aquarossa-culture-game-v5",
-  "version": "5.0.0",
+  "name": "aquarossa-culture-game",
+  "version": "7.0.0",
   "private": true,
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "node tests/smoke.cjs"
   },
   "dependencies": {
     "express": "^4.21.2",

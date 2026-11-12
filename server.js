@@ -101,7 +101,7 @@ const game = {
   answers: {},
   matchId: 0
 };
-let lobbyTimer = null, questionTimer = null, revealTimer = null;
+let lobbyTimer = null, questionTimer = null, revealTimer = null, tieTimer = null;
 
 function activePlayers() { return Object.entries(game.players); }
 function publicPlayers() {
@@ -117,9 +117,16 @@ function allTimeRows() {
     .slice(0,30);
 }
 function state() {
-  const q = (game.phase==="question" || game.phase==="reveal") ? game.questions[game.round] : null;
+  const q = game.phase === "tiebreak" ? game.tieQuestion : (game.phase==="question" || game.phase==="reveal") ? game.questions[game.round] : null;
   return {
     phase: game.phase,
+    matchId: game.matchId,
+    phaseDeadline: game.phaseDeadline || 0,
+    tieIds: game.tieIds || [],
+    eliminatedIds: game.eliminatedIds || [],
+    tieRound: game.tieRound || 0,
+    reveal: game.reveal || null,
+    finalResult: game.finalResult || null,
     hostId: game.hostId,
     players: publicPlayers(),
     lobbyDeadline: game.lobbyDeadline,
@@ -136,7 +143,7 @@ function state() {
 function broadcast() { io.emit("state", state()); }
 
 function resetMatch() {
-  clearTimeout(lobbyTimer); clearTimeout(questionTimer); clearTimeout(revealTimer);
+  clearTimeout(lobbyTimer); clearTimeout(questionTimer); clearTimeout(revealTimer); clearTimeout(tieTimer);
   game.phase = "idle";
   game.hostId = null;
   game.players = {};
@@ -160,13 +167,18 @@ function startLobbyCountdown() {
   game.lobbyDeadline = Date.now() + 30000;
   const token = game.matchId;
   lobbyTimer = setTimeout(() => {
-    if (game.matchId === token && game.phase === "lobby" && activePlayers().length >= 1) startMatch();
+    if (game.matchId === token && game.phase === "lobby") {
+      if (activePlayers().length) startMatch();
+      else { game.phase = "waiting"; game.lobbyDeadline = 0; broadcast(); }
+    }
   }, 30100);
   broadcast();
 }
 function startMatch() {
   if (activePlayers().length < 1 || game.phase !== "lobby") return;
   clearTimeout(lobbyTimer);
+  game.tieIds = []; game.eliminatedIds = []; game.tieRound = 0;
+  game.finalResult = null; game.reveal = null;
   game.questions = chooseWeekQuestions();
   game.round = 0;
   game.answers = {};
@@ -178,6 +190,7 @@ function startMatch() {
 function startQuestionClock() {
   clearTimeout(questionTimer);
   game.answers = {};
+  game.reveal = null;
   game.questionDeadline = Date.now() + 30000;
   const token = game.matchId;
   questionTimer = setTimeout(() => {
@@ -200,13 +213,14 @@ function revealRound() {
     results[id] = { name:p.name, choice:ans ? ans.choice : null, correct };
   }
   game.phase = "reveal";
-  io.emit("reveal", {
+  game.reveal = {
     round:game.round,
     correct:q.correct,
     category:q.category,
     explanation:CATEGORY_EXPLAIN[q.category] || "",
     results
-  });
+  };
+  io.emit("reveal", game.reveal);
   broadcast();
 
   const token = game.matchId;
@@ -217,16 +231,66 @@ function revealRound() {
       game.phase = "question";
       startQuestionClock();
       broadcast();
-    } else finishMatch();
+    } else resolveMatch();
   }, 6500);
 }
-function finishMatch() {
-  clearTimeout(questionTimer); clearTimeout(revealTimer);
+function resolveMatch() {
+  const rows = activePlayers();
+  const max = Math.max(...rows.map(([,p]) => p.score));
+  game.tieIds = rows.filter(([,p]) => p.score === max).map(([id]) => id);
+  if (game.tieIds.length <= 1) return finishMatch(game.tieIds[0]);
+  game.tieRound = 0;
+  game.tieUsedIds = game.questions.map(q => q.id);
+  game.phase = "tie-rules";
+  game.phaseDeadline = Date.now() + 8000;
+  broadcast();
+  tieTimer = setTimeout(beginTieCountdown, 8000);
+}
+function beginTieCountdown() {
+  if (!checkTiePlayers()) return;
+  game.phase = "tie-countdown";
+  game.phaseDeadline = Date.now() + 5000;
+  game.answers = {}; game.eliminatedIds = []; game.reveal = null;
+  broadcast();
+  tieTimer = setTimeout(startTieQuestion, 5000);
+}
+function checkTiePlayers() {
+  game.tieIds = game.tieIds.filter(id => game.players[id]);
+  if (game.tieIds.length === 0) {
+    finishMatch(null);
+    return false;
+  }
+  return true;
+}
+function startTieQuestion() {
+  if (!checkTiePlayers()) return;
+  let pool = QUESTIONS.filter(q => !game.tieUsedIds.includes(q.id));
+  if (!pool.length) { game.tieUsedIds = []; pool = QUESTIONS; }
+  const source = shuffleArray(pool)[0];
+  game.tieUsedIds.push(source.id);
+  game.tieQuestion = prepareQuestion(source, Math.floor(Math.random()*3));
+  game.tieRound += 1;
+  game.phase = "tiebreak";
+  game.answers = {}; game.eliminatedIds = [];
+  game.questionDeadline = Date.now() + 5000;
+  broadcast();
+  tieTimer = setTimeout(retryTie, 5000);
+}
+function retryTie() {
+  if (game.phase !== "tiebreak") return;
+  clearTimeout(tieTimer);
+  game.phase = "tie-retry";
+  game.phaseDeadline = Date.now() + 3500;
+  broadcast();
+  tieTimer = setTimeout(beginTieCountdown, 3500);
+}
+function finishMatch(winnerId) {
+  clearTimeout(questionTimer); clearTimeout(revealTimer); clearTimeout(tieTimer);
   game.phase = "finished";
   const rows = activePlayers().map(([id,p])=>({ id, name:p.name, score:p.score }))
-    .sort((a,b)=>b.score-a.score || a.name.localeCompare(b.name));
+    .sort((a,b)=>b.score-a.score || Number(b.id===winnerId)-Number(a.id===winnerId) || a.name.localeCompare(b.name));
   const max = rows.length ? rows[0].score : 0;
-  const winners = rows.filter(r => r.score === max).map(r=>r.name);
+  const winners = rows.filter(r => r.id === winnerId).map(r=>r.name);
 
   for (const r of rows) {
     const s = personStats(r.name);
@@ -234,13 +298,14 @@ function finishMatch() {
     s.correct += r.score;
     s.answered += 5;
     s.games += 1;
-    if (r.score === max) s.wins += 1;
+    if (r.id === winnerId) s.wins += 1;
   }
   persistent.history.push({ at:new Date().toISOString(), week:persistent.weekCounter, cycle:persistent.cycle, winners, players:rows });
   if (persistent.history.length > 100) persistent.history = persistent.history.slice(-100);
   persist();
 
-  io.emit("finished", { rows, winners, allTime:allTimeRows() });
+  game.finalResult = { rows, winners, winnerId: winnerId || null, tiebreak:game.tieRound > 0, allTime:allTimeRows() };
+  io.emit("finished", game.finalResult);
   broadcast();
 }
 function assignNewHost() {
@@ -253,12 +318,6 @@ io.on("connection", socket => {
   connected[socket.id] = { language:"es" };
   if (!game.hostId && ["waiting","idle"].includes(game.phase)) game.hostId = socket.id;
 
-  // If the lobby is already open, this browser joins the current match as its own player.
-  if (game.phase === "lobby" && activePlayers().length < 50) {
-    const number = activePlayers().length + 1;
-    game.players[socket.id] = { name:`Player ${number}`, language:connected[socket.id].language, score:0 };
-  }
-
   socket.emit("bootstrap", {});
   socket.emit("joined", { id:socket.id, host:socket.id===game.hostId });
   socket.emit("state", state());
@@ -266,16 +325,20 @@ io.on("connection", socket => {
 
   socket.on("start-lobby", () => {
     if (socket.id !== game.hostId || !["waiting","idle"].includes(game.phase)) return;
-    // Everyone who is already on the waiting page becomes a DISTINCT player
-    // at the exact moment the lobby opens.
     game.players = {};
-    let number = 1;
-    for (const [id,c] of Object.entries(connected)) {
-      if (number > 50) break;
-      game.players[id] = { name:`Player ${number++}`, language:c.language || "es", score:0 };
-    }
     game.phase = "waiting";
     startLobbyCountdown();
+  });
+
+  socket.on("join-game", rawName => {
+    if (game.phase !== "lobby" || Date.now() >= game.lobbyDeadline) return socket.emit("join-error", "closed");
+    if (typeof rawName !== "string") return socket.emit("join-error", "name");
+    const name = rawName.replace(/[\x00-\x1f\x7f]/g, "").trim().replace(/\s+/g, " ");
+    if (!name || name.length > 30) return socket.emit("join-error", "name");
+    if (Object.entries(game.players).some(([id,p]) => id !== socket.id && keyName(p.name) === keyName(name))) return socket.emit("join-error", "duplicate");
+    if (!game.players[socket.id] && activePlayers().length >= 50) return socket.emit("join-error", "full");
+    game.players[socket.id] = { name, language:connected[socket.id].language, score:0 };
+    broadcast();
   });
 
   socket.on("set-language", language => {
@@ -285,7 +348,21 @@ io.on("connection", socket => {
     broadcast();
   });
 
-  socket.on("answer", choice => {
+  socket.on("answer", payload => {
+    // Reject answers from an earlier question, including delayed network packets.
+    if (!payload || payload.matchId !== game.matchId || payload.questionId !== (game.phase === "tiebreak" ? game.tieQuestion?.id : game.questions[game.round]?.id) || payload.tieRound !== (game.phase === "tiebreak" ? game.tieRound : 0)) return;
+    const choice = payload.choice;
+    if (!Number.isInteger(choice) || choice < 0 || choice > 2) return;
+    if (Date.now() >= game.questionDeadline) return;
+    if (game.phase === "tiebreak") {
+      if (!game.tieIds.includes(socket.id) || game.answers[socket.id] || !game.players[socket.id]) return;
+      game.answers[socket.id] = { choice };
+      if (choice === game.tieQuestion.correct) return finishMatch(socket.id);
+      game.eliminatedIds.push(socket.id);
+      broadcast();
+      if (game.tieIds.every(id => game.answers[id])) retryTie();
+      return;
+    }
     if (game.phase !== "question" || !game.players[socket.id] || game.answers[socket.id]) return;
     if (!Number.isInteger(choice) || choice < 0 || choice > 2) return;
     game.answers[socket.id] = { choice };
@@ -296,7 +373,7 @@ io.on("connection", socket => {
   socket.on("new-match", () => {
     if (socket.id !== game.hostId || game.phase !== "finished") return;
     game.matchId += 1;
-    clearTimeout(lobbyTimer); clearTimeout(questionTimer); clearTimeout(revealTimer);
+    clearTimeout(lobbyTimer); clearTimeout(questionTimer); clearTimeout(revealTimer); clearTimeout(tieTimer);
     game.phase = "waiting";
     game.players = {};
     game.lobbyDeadline = 0;
@@ -313,10 +390,13 @@ io.on("connection", socket => {
     if (wasPlayer) delete game.players[socket.id];
     if (socket.id === game.hostId) assignNewHost();
     if (game.phase === "question" && wasPlayer) maybeRevealEarly();
+    if (game.phase.startsWith("tie") && wasPlayer) {
+      if (checkTiePlayers() && game.phase === "tiebreak" && game.tieIds.every(id => game.answers[id])) retryTie();
+    }
     // Do not reset the shared game merely because one browser leaves.
     if (Object.keys(connected).length === 0 && ["waiting","idle","lobby"].includes(game.phase)) resetMatch();
     broadcast();
   });
 });
 
-server.listen(process.env.PORT || 3000, () => console.log("Aquarossa Culture Battle V6 ready"));
+server.listen(process.env.PORT || 3000, () => console.log("Aquarossa Culture Battle V7 ready"));

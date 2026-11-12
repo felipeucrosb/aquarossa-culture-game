@@ -1,24 +1,36 @@
-# Aquarossa Culture Game V6
+# Aquarossa Culture Game V7
 
-## Cambios V6
-- El primer jugador crea la sesión y se convierte en host.
-- El lobby queda en **WAITING** hasta que el host presiona **START LOBBY · 30 SEC**.
-- Al iniciar el lobby, todos los jugadores que entren comparten el mismo countdown de 30 segundos controlado por el servidor.
-- Cada jugador puede elegir **Español** o **English** individualmente desde el lobby sin afectar la sincronización.
-- Nuevo banco de 10 preguntas directas sobre Misión, Visión y Valores, en ambos idiomas.
-- Cada pregunta tiene 3 opciones (A/B/C).
-- Las opciones se mezclan una sola vez por partida en el servidor, por lo que todos ven el mismo orden y la respuesta correcta ya no queda siempre en B.
-- El juego sigue usando 5 preguntas por partida, elegidas del banco de 10, para mantener sesiones cortas.
+## Participar
+1. El host abre el lobby de 30 segundos.
+2. Cada participante escribe un nombre de 1 a 30 caracteres y pulsa Join antes de que cierre. Los nombres no se pueden repetir dentro del lobby.
+3. Quien no pulse Join puede ver la partida como espectador. El host también debe pulsar Join si quiere jugar.
+4. Se juegan cinco preguntas de 30 segundos. Cada respuesta correcta suma un punto.
+5. El leaderboard de la derecha se actualiza después de cada pregunta; las puntuaciones iguales comparten puesto.
 
-## Ejecutar
+## Mata-mata
+- Solo participan quienes empatan en el primer lugar, incluso si son más de dos.
+- Pantalla de reglas: 8 segundos. Después, cuenta regresiva: 5, 4, 3, 2, 1.
+- Luego aparece una pregunta con 5 segundos para responder.
+- Gana la primera respuesta correcta recibida por el servidor. El orden de llegada puede depender de la conexión.
+- Una respuesta incorrecta elimina al jugador de esa pregunta y no puede cambiarse.
+- Si nadie acierta, se muestra un aviso de 3.5 segundos, otra cuenta regresiva y una nueva pregunta. Todos los empatados que sigan conectados vuelven a participar.
+- Los espectadores y los jugadores fuera del empate no pueden contestar.
+- El desempate decide la victoria, sin alterar los puntos de las cinco rondas.
+- Al desconectarse, el jugador sale de la partida. Si solo queda un finalista, también debe acertar para ganar. Si no queda ninguno, termina sin ganador.
+
+## Actualizar el juego existente
+Sube `server.js` y `public/index.html` a sus mismas ubicaciones en GitHub, en el repositorio conectado al servicio del juego en Render. Guarda ambos cambios antes de desplegar. No subas el ZIP directamente ni borres `data.json`.
+
+Si subes todo el contenido, conserva cualquier `data.json` existente. `package.json` solo actualiza el nombre, la versión y el comando de pruebas; las dependencias siguen iguales.
+
+Después vuelve a desplegar el servicio y recarga todas las pestañas del juego para cargar el cliente nuevo. La actualización reinicia cualquier partida en curso.
+
+El historial usa `data.json` del servidor: su conservación entre despliegues depende del almacenamiento persistente que tenga configurado el servicio.
+
+## Ejecutar y verificar
 ```bash
 npm install
 npm start
+npm test
 ```
-
-## Corrección de respuestas (12 de noviembre de 2026)
-- Cada partida de cinco preguntas incluye respuestas correctas en A, B y C.
-- Cada letra aparece una o dos veces, con posiciones aleatorias por partida.
-- El servidor conserva la correspondencia entre la opción correcta y su nueva letra, en ambos idiomas.
-- Todos los jugadores ven el mismo orden.
-- Para aplicar: reemplaza los archivos del servidor y reinicia o vuelve a desplegar la aplicación. No es necesario borrar data.json.
+La prueba usa conexiones y reloj simulados para comprobar ingreso, puntuación, desempates, espectadores y registro de una única victoria, sin modificar los datos guardados.
