@@ -19,7 +19,7 @@
 - Al desconectarse, el jugador sale de la partida. Si solo queda un finalista, también debe acertar para ganar. Si no queda ninguno, termina sin ganador.
 
 ## Actualizar el juego existente
-Sube `server.js` y `public/index.html` a sus mismas ubicaciones en GitHub, en el repositorio conectado al servicio del juego en Render. Guarda ambos cambios antes de desplegar. No subas el ZIP directamente ni borres `data.json`.
+Sube `questions.json`, `server.js` y `public/index.html` a sus mismas ubicaciones en GitHub, en el repositorio conectado al servicio del juego en Render. Guarda todos los cambios antes de desplegar. No subas el ZIP directamente ni borres `data.json`.
 
 Si subes todo el contenido, conserva cualquier `data.json` existente. `package.json` solo actualiza el nombre, la versión y el comando de pruebas; las dependencias siguen iguales.
 
@@ -34,3 +34,8 @@ npm start
 npm test
 ```
 La prueba usa conexiones y reloj simulados para comprobar ingreso, puntuación, desempates, espectadores y registro de una única victoria, sin modificar los datos guardados.
+
+## Nuevo valor: Hazlo simple
+Buscamos siempre el camino más simple para llegar a la meta. Evitamos procesos, reportes y fórmulas más complicados de lo necesario: si algo se puede hacer en menos pasos, lo hacemos en menos pasos.
+
+El banco ahora incluye seis valores y 15 preguntas en español e inglés, con cinco preguntas sobre el nuevo valor (significado, reportes, pasos, fórmulas y seguimiento de tareas). Cada partida conserva cinco preguntas; las nuevas entran en la selección habitual y también pueden aparecer en el mata-mata.

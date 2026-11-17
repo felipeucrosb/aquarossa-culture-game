@@ -2,110 +2,345 @@
   {
     "id": 201,
     "category": "Visión",
-    "prompt": {"es":"¿Cuál es la visión de Aquarossa?","en":"What is Aquarossa's vision?"},
+    "prompt": {
+      "es": "¿Cuál es la visión de Aquarossa?",
+      "en": "What is Aquarossa's vision?"
+    },
     "options": [
-      {"es":"Hacer que un servicio de entrega de flores de alta calidad sea accesible para todos, con el tiempo de entrega más rápido y al mejor precio.","en":"Make a high-quality flower delivery service accessible to everyone, with the fastest delivery time and at the best price."},
-      {"es":"Convertirnos en la empresa de flores de lujo más exclusiva de Estados Unidos.","en":"Become the most exclusive luxury flower company in the United States."},
-      {"es":"Tener la mayor cantidad de tiendas físicas de flores en cada ciudad.","en":"Have the largest number of physical flower stores in every city."}
+      {
+        "es": "Hacer que un servicio de entrega de flores de alta calidad sea accesible para todos, con el tiempo de entrega más rápido y al mejor precio.",
+        "en": "Make a high-quality flower delivery service accessible to everyone, with the fastest delivery time and at the best price."
+      },
+      {
+        "es": "Convertirnos en la empresa de flores de lujo más exclusiva de Estados Unidos.",
+        "en": "Become the most exclusive luxury flower company in the United States."
+      },
+      {
+        "es": "Tener la mayor cantidad de tiendas físicas de flores en cada ciudad.",
+        "en": "Have the largest number of physical flower stores in every city."
+      }
     ],
     "correct": 0
   },
   {
     "id": 202,
     "category": "Misión",
-    "prompt": {"es":"¿Cuál es la misión de Aquarossa?","en":"What is Aquarossa's mission?"},
+    "prompt": {
+      "es": "¿Cuál es la misión de Aquarossa?",
+      "en": "What is Aquarossa's mission?"
+    },
     "options": [
-      {"es":"Ayudar a las personas a compartir alegría y expresar cariño a través del regalo de flores, mientras apoyamos a comunidades lideradas por mujeres cerca de nuestra finca en Guatemala.","en":"Help people share joy and express care through the gift of flowers, while supporting women-led communities near our farm in Guatemala."},
-      {"es":"Vender la mayor cantidad posible de flores en Estados Unidos al menor costo operativo.","en":"Sell as many flowers as possible in the United States at the lowest operating cost."},
-      {"es":"Reemplazar las florerías tradicionales con una experiencia completamente digital.","en":"Replace traditional flower shops with a completely digital experience."}
+      {
+        "es": "Ayudar a las personas a compartir alegría y expresar cariño a través del regalo de flores, mientras apoyamos a comunidades lideradas por mujeres cerca de nuestra finca en Guatemala.",
+        "en": "Help people share joy and express care through the gift of flowers, while supporting women-led communities near our farm in Guatemala."
+      },
+      {
+        "es": "Vender la mayor cantidad posible de flores en Estados Unidos al menor costo operativo.",
+        "en": "Sell as many flowers as possible in the United States at the lowest operating cost."
+      },
+      {
+        "es": "Reemplazar las florerías tradicionales con una experiencia completamente digital.",
+        "en": "Replace traditional flower shops with a completely digital experience."
+      }
     ],
     "correct": 0
   },
   {
     "id": 203,
     "category": "Valores",
-    "prompt": {"es":"¿Cuáles son los cinco valores de Aquarossa?","en":"What are Aquarossa's five values?"},
+    "prompt": {
+      "es": "¿Cuáles son los seis valores de Aquarossa?",
+      "en": "What are Aquarossa's six values?"
+    },
     "options": [
-      {"es":"La mejor idea gana · Siempre es el Día 1 · Nada es demasiado loco · Los datos tienen la última palabra · Adueñate de tu palabra","en":"The Best Idea Wins · Always Day One · Nothing Is Too Crazy · Data Has the Last Word · Own Your Word"},
-      {"es":"El cliente siempre tiene razón · Muévete rápido · Piensa en grande · Sé humilde · Nunca te rindas","en":"The Customer Is Always Right · Move Fast · Think Big · Stay Humble · Never Give Up"},
-      {"es":"Calidad primero · Trabaja duro · Sé positivo · Respeta la jerarquía · Evita errores","en":"Quality First · Work Hard · Stay Positive · Respect Hierarchy · Avoid Mistakes"}
+      {
+        "es": "La mejor idea gana · Siempre es el Día 1 · Nada es demasiado loco · Los datos tienen la última palabra · Adueñate de tu palabra · Hazlo simple",
+        "en": "The Best Idea Wins · Always Day One · Nothing Is Too Crazy · Data Has the Last Word · Own Your Word · Keep It Simple"
+      },
+      {
+        "es": "El cliente siempre tiene razón · Muévete rápido · Piensa en grande · Sé humilde · Nunca te rindas · Cuida cada detalle",
+        "en": "The Customer Is Always Right · Move Fast · Think Big · Stay Humble · Never Give Up · Mind Every Detail"
+      },
+      {
+        "es": "Calidad primero · Trabaja duro · Sé positivo · Respeta la jerarquía · Evita errores · Sigue las reglas",
+        "en": "Quality First · Work Hard · Stay Positive · Respect Hierarchy · Avoid Mistakes · Follow the Rules"
+      }
     ],
     "correct": 0
   },
   {
     "id": 204,
     "category": "La mejor idea gana",
-    "prompt": {"es":"¿Qué significa “La mejor idea gana”?","en":"What does “The Best Idea Wins” mean?"},
+    "prompt": {
+      "es": "¿Qué significa “La mejor idea gana”?",
+      "en": "What does “The Best Idea Wins” mean?"
+    },
     "options": [
-      {"es":"No importa de quién venga la idea; debe ganar la que mejor sirva al objetivo.","en":"It doesn't matter who the idea comes from; the idea that best serves the goal should win."},
-      {"es":"La persona con más experiencia debe tomar la decisión final.","en":"The person with the most experience should make the final decision."},
-      {"es":"El líder del equipo debe proponer la idea que se ejecutará.","en":"The team leader should propose the idea that will be executed."}
+      {
+        "es": "No importa de quién venga la idea; debe ganar la que mejor sirva al objetivo.",
+        "en": "It doesn't matter who the idea comes from; the idea that best serves the goal should win."
+      },
+      {
+        "es": "La persona con más experiencia debe tomar la decisión final.",
+        "en": "The person with the most experience should make the final decision."
+      },
+      {
+        "es": "El líder del equipo debe proponer la idea que se ejecutará.",
+        "en": "The team leader should propose the idea that will be executed."
+      }
     ],
     "correct": 0
   },
   {
     "id": 205,
     "category": "Siempre es el Día 1",
-    "prompt": {"es":"¿Qué significa “Siempre es el Día 1”?","en":"What does “Always Day One” mean?"},
+    "prompt": {
+      "es": "¿Qué significa “Siempre es el Día 1”?",
+      "en": "What does “Always Day One” mean?"
+    },
     "options": [
-      {"es":"Mantener hambre, curiosidad y mentalidad de mejora continua sin importar cuánto hayamos crecido.","en":"Stay hungry, curious, and focused on continuous improvement no matter how much we have grown."},
-      {"es":"Repetir los procesos originales de la empresa porque fueron los que nos hicieron crecer.","en":"Repeat the company's original processes because they are what made us grow."},
-      {"es":"Tratar cada proyecto como si fuera literalmente el primer día de trabajo.","en":"Treat every project as if it were literally your first day at work."}
+      {
+        "es": "Mantener hambre, curiosidad y mentalidad de mejora continua sin importar cuánto hayamos crecido.",
+        "en": "Stay hungry, curious, and focused on continuous improvement no matter how much we have grown."
+      },
+      {
+        "es": "Repetir los procesos originales de la empresa porque fueron los que nos hicieron crecer.",
+        "en": "Repeat the company's original processes because they are what made us grow."
+      },
+      {
+        "es": "Tratar cada proyecto como si fuera literalmente el primer día de trabajo.",
+        "en": "Treat every project as if it were literally your first day at work."
+      }
     ],
     "correct": 0
   },
   {
     "id": 206,
     "category": "Nada es demasiado loco",
-    "prompt": {"es":"¿Qué significa “Nada es demasiado loco”?","en":"What does “Nothing Is Too Crazy” mean?"},
+    "prompt": {
+      "es": "¿Qué significa “Nada es demasiado loco”?",
+      "en": "What does “Nothing Is Too Crazy” mean?"
+    },
     "options": [
-      {"es":"Dar espacio a ideas audaces y no rechazarlas solo porque nunca se han hecho antes.","en":"Give bold ideas room and don't reject them just because they haven't been done before."},
-      {"es":"Ejecutar cualquier idea nueva sin analizar sus riesgos.","en":"Execute any new idea without analyzing its risks."},
-      {"es":"Preferir siempre la alternativa más agresiva o arriesgada.","en":"Always prefer the most aggressive or risky alternative."}
+      {
+        "es": "Dar espacio a ideas audaces y no rechazarlas solo porque nunca se han hecho antes.",
+        "en": "Give bold ideas room and don't reject them just because they haven't been done before."
+      },
+      {
+        "es": "Ejecutar cualquier idea nueva sin analizar sus riesgos.",
+        "en": "Execute any new idea without analyzing its risks."
+      },
+      {
+        "es": "Preferir siempre la alternativa más agresiva o arriesgada.",
+        "en": "Always prefer the most aggressive or risky alternative."
+      }
     ],
     "correct": 0
   },
   {
     "id": 207,
     "category": "Los datos tienen la última palabra",
-    "prompt": {"es":"¿Qué significa “Los datos tienen la última palabra”?","en":"What does “Data Has the Last Word” mean?"},
+    "prompt": {
+      "es": "¿Qué significa “Los datos tienen la última palabra”?",
+      "en": "What does “Data Has the Last Word” mean?"
+    },
     "options": [
-      {"es":"Las opiniones importan, pero cuando los datos dan una respuesta clara seguimos la evidencia.","en":"Opinions matter, but when the data gives a clear answer, we follow the evidence."},
-      {"es":"No se puede tomar ninguna decisión hasta tener datos perfectos.","en":"No decision can be made until we have perfect data."},
-      {"es":"Los datos sustituyen por completo la experiencia y el criterio del equipo.","en":"Data completely replaces the team's experience and judgment."}
+      {
+        "es": "Las opiniones importan, pero cuando los datos dan una respuesta clara seguimos la evidencia.",
+        "en": "Opinions matter, but when the data gives a clear answer, we follow the evidence."
+      },
+      {
+        "es": "No se puede tomar ninguna decisión hasta tener datos perfectos.",
+        "en": "No decision can be made until we have perfect data."
+      },
+      {
+        "es": "Los datos sustituyen por completo la experiencia y el criterio del equipo.",
+        "en": "Data completely replaces the team's experience and judgment."
+      }
     ],
     "correct": 0
   },
   {
     "id": 208,
     "category": "Adueñate de tu palabra",
-    "prompt": {"es":"¿Qué significa “Adueñate de tu palabra”?","en":"What does “Own Your Word” mean?"},
+    "prompt": {
+      "es": "¿Qué significa “Adueñate de tu palabra”?",
+      "en": "What does “Own Your Word” mean?"
+    },
     "options": [
-      {"es":"Cuando dices que harás algo, te haces responsable de cumplirlo y comunicas temprano cualquier riesgo.","en":"When you say you will do something, you take responsibility for delivering it and communicate any risk early."},
-      {"es":"Solo comprometerte cuando estés 100% seguro de que nada puede salir mal.","en":"Only commit when you are 100% sure nothing can go wrong."},
-      {"es":"Tu responsabilidad termina cuando informas a otra persona de lo que debe hacerse.","en":"Your responsibility ends when you tell someone else what needs to be done."}
+      {
+        "es": "Cuando dices que harás algo, te haces responsable de cumplirlo y comunicas temprano cualquier riesgo.",
+        "en": "When you say you will do something, you take responsibility for delivering it and communicate any risk early."
+      },
+      {
+        "es": "Solo comprometerte cuando estés 100% seguro de que nada puede salir mal.",
+        "en": "Only commit when you are 100% sure nothing can go wrong."
+      },
+      {
+        "es": "Tu responsabilidad termina cuando informas a otra persona de lo que debe hacerse.",
+        "en": "Your responsibility ends when you tell someone else what needs to be done."
+      }
     ],
     "correct": 0
   },
   {
     "id": 209,
     "category": "Valores",
-    "prompt": {"es":"¿Cuál de estos NO es un valor de Aquarossa?","en":"Which of these is NOT an Aquarossa value?"},
+    "prompt": {
+      "es": "¿Cuál de estos NO es un valor de Aquarossa?",
+      "en": "Which of these is NOT an Aquarossa value?"
+    },
     "options": [
-      {"es":"El cliente siempre tiene razón","en":"The Customer Is Always Right"},
-      {"es":"Nada es demasiado loco","en":"Nothing Is Too Crazy"},
-      {"es":"La mejor idea gana","en":"The Best Idea Wins"}
+      {
+        "es": "El cliente siempre tiene razón",
+        "en": "The Customer Is Always Right"
+      },
+      {
+        "es": "Nada es demasiado loco",
+        "en": "Nothing Is Too Crazy"
+      },
+      {
+        "es": "La mejor idea gana",
+        "en": "The Best Idea Wins"
+      }
     ],
     "correct": 0
   },
   {
     "id": 210,
     "category": "Valores",
-    "prompt": {"es":"Completa el valor de Aquarossa: “Los datos tienen ____.”","en":"Complete the Aquarossa value: “Data Has ____.”"},
+    "prompt": {
+      "es": "Completa el valor de Aquarossa: “Los datos tienen ____.”",
+      "en": "Complete the Aquarossa value: “Data Has ____.”"
+    },
     "options": [
-      {"es":"la última palabra","en":"the Last Word"},
-      {"es":"la respuesta correcta","en":"the Right Answer"},
-      {"es":"la decisión final","en":"the Final Decision"}
+      {
+        "es": "la última palabra",
+        "en": "the Last Word"
+      },
+      {
+        "es": "la respuesta correcta",
+        "en": "the Right Answer"
+      },
+      {
+        "es": "la decisión final",
+        "en": "the Final Decision"
+      }
+    ],
+    "correct": 0
+  },
+  {
+    "id": 211,
+    "category": "Hazlo simple",
+    "prompt": {
+      "es": "¿Qué significa “Hazlo simple”?",
+      "en": "What does “Keep It Simple” mean?"
+    },
+    "options": [
+      {
+        "es": "Buscar el camino más simple para llegar a la meta y evitar complejidad innecesaria.",
+        "en": "Find the simplest path to the goal and avoid unnecessary complexity."
+      },
+      {
+        "es": "Elegir siempre lo que requiere menos esfuerzo, aunque no cumpla la meta.",
+        "en": "Always choose what takes the least effort, even if it fails to achieve the goal."
+      },
+      {
+        "es": "Mantener todos los pasos del proceso para evitar cambiar la forma de trabajar.",
+        "en": "Keep every step in the process to avoid changing how we work."
+      }
+    ],
+    "correct": 0
+  },
+  {
+    "id": 212,
+    "category": "Hazlo simple",
+    "prompt": {
+      "es": "Un reporte repite datos que ya están en otro y nadie usa esa información adicional. ¿Qué harías según “Hazlo simple”?",
+      "en": "A report repeats data already in another report, and nobody uses the extra information. What would you do under “Keep It Simple”?"
+    },
+    "options": [
+      {
+        "es": "Consolidar los reportes y conservar solo la información necesaria para decidir.",
+        "en": "Consolidate the reports and keep only the information needed to make decisions."
+      },
+      {
+        "es": "Agregar un resumen diario para explicar ambos reportes.",
+        "en": "Add a daily summary to explain both reports."
+      },
+      {
+        "es": "Mantener ambos porque tener más reportes siempre mejora las decisiones.",
+        "en": "Keep both because more reports always improve decisions."
+      }
+    ],
+    "correct": 0
+  },
+  {
+    "id": 213,
+    "category": "Hazlo simple",
+    "prompt": {
+      "es": "Puedes lograr el mismo resultado con tres pasos en lugar de ocho, manteniendo la calidad y los controles necesarios. ¿Qué opción refleja “Hazlo simple”?",
+      "en": "You can achieve the same result in three steps instead of eight while maintaining quality and necessary checks. Which option reflects “Keep It Simple”?"
+    },
+    "options": [
+      {
+        "es": "Usar los tres pasos y actualizar el proceso para el equipo.",
+        "en": "Use the three steps and update the process for the team."
+      },
+      {
+        "es": "Mantener los ocho pasos porque un proceso largo es más profesional.",
+        "en": "Keep all eight steps because a longer process is more professional."
+      },
+      {
+        "es": "Usar un solo paso aunque se pierdan controles necesarios.",
+        "en": "Use a single step even if necessary checks are lost."
+      }
+    ],
+    "correct": 0
+  },
+  {
+    "id": 214,
+    "category": "Hazlo simple",
+    "prompt": {
+      "es": "¿Cuál de estas acciones NO refleja el valor “Hazlo simple”?",
+      "en": "Which action does NOT reflect “Keep It Simple”?"
+    },
+    "options": [
+      {
+        "es": "Crear una fórmula compleja cuando una suma sencilla responde la misma pregunta.",
+        "en": "Create a complex formula when a simple sum answers the same question."
+      },
+      {
+        "es": "Eliminar pasos duplicados que no aportan al resultado.",
+        "en": "Remove duplicate steps that do not contribute to the result."
+      },
+      {
+        "es": "Reducir un reporte a los datos que el equipo necesita para actuar.",
+        "en": "Reduce a report to the data the team needs to act."
+      }
+    ],
+    "correct": 0
+  },
+  {
+    "id": 215,
+    "category": "Hazlo simple",
+    "prompt": {
+      "es": "Necesitas dar seguimiento a una tarea sencilla. ¿Cómo aplicarías “Hazlo simple”?",
+      "en": "You need to track a simple task. How would you apply “Keep It Simple”?"
+    },
+    "options": [
+      {
+        "es": "Definir un responsable, una fecha y un seguimiento breve en la herramienta existente.",
+        "en": "Assign an owner and a deadline, and track progress briefly in the existing tool."
+      },
+      {
+        "es": "Crear una herramienta nueva, tres reportes y una reunión diaria para esa tarea.",
+        "en": "Create a new tool, three reports, and a daily meeting for the task."
+      },
+      {
+        "es": "No asignar responsable ni fecha para evitar pasos adicionales.",
+        "en": "Assign no owner or deadline to avoid additional steps."
+      }
     ],
     "correct": 0
   }

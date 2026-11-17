@@ -20,9 +20,10 @@ const CATEGORY_EXPLAIN = {
   "Nada es demasiado loco": { es:"Las ideas audaces merecen espacio; no se descartan solo porque nunca se han hecho.", en:"Bold ideas deserve room; we do not reject them simply because they have never been done." },
   "Los datos tienen la última palabra": { es:"Las opiniones abren la conversación; cuando la evidencia es clara, seguimos los datos.", en:"Opinions open the conversation; when the evidence is clear, we follow the data." },
   "Adueñate de tu palabra": { es:"Cumplimos lo que prometemos y comunicamos riesgos temprano.", en:"We deliver on our commitments and communicate risks early." },
+  "Hazlo simple": {"es": "Buscamos siempre el camino más simple para llegar a la meta. Evitamos procesos, reportes y fórmulas más complicados de lo necesario: si algo se puede hacer en menos pasos, lo hacemos en menos pasos.", "en": "We always look for the simplest path to the goal. We avoid processes, reports, and formulas that are more complicated than necessary: if something can be done in fewer steps, we do it in fewer steps."},
   "Misión": { es:"Ayudar a las personas a compartir alegría y expresar cariño a través del regalo de flores, mientras apoyamos a comunidades lideradas por mujeres cerca de nuestra finca en Guatemala.", en:"Help people share joy and express care through the gift of flowers, while supporting women-led communities near our farm in Guatemala." },
   "Visión": { es:"Hacer que un servicio de entrega de flores de alta calidad sea accesible para todos, con el tiempo de entrega más rápido y al mejor precio.", en:"Make a high-quality flower delivery service accessible to everyone, with the fastest delivery time and at the best price." },
-  "Valores": { es:"Nuestros cinco valores definen cómo pensamos, decidimos y cumplimos en Aquarossa.", en:"Our five values define how we think, decide, and deliver at Aquarossa." }
+  "Valores": { es:"Nuestros seis valores definen cómo pensamos, decidimos y cumplimos en Aquarossa.", en:"Our six values define how we think, decide, and deliver at Aquarossa." }
 };
 
 function defaultPersistent() {
